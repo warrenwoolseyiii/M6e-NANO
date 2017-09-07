@@ -7,12 +7,34 @@
 
 #include <avr/io.h>
 
+#include <hal/atmega328p/core/core.h>
+#include <hal/atmega328p/uart/uart.h>
+
+#include <SparkFun_UHF_RFID_Reader.h>
 
 int main(void)
 {
-    /* Replace with your application code */
-    while (1) 
-    {
-    }
+	RFID nano;
+	uart_params_t params;
+
+	params.baudRate = baud_115200;
+	params.multiProcessorMode = FALSE;
+	params.numDataBits = 8;
+	params.numStopBits = 1;
+	params.parity = no_parity;
+
+	while (!nano.begin(params));
+
+	while (uart_numAsyncRxBytesInBuff() > 0)
+		uart_flushAsyncRxBuff();
+
+	nano.getVersion();
+	if (nano.msg[0] != ALL_GOOD)
+		return 0;
+
+	/* Replace with your application code */
+	while (1) 
+	{
+	}
 }
 
