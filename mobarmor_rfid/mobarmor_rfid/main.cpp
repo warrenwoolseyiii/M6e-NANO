@@ -6,6 +6,7 @@
  */ 
 
 #include <avr/io.h>
+#include <stdio.h>
 
 #include <hal/atmega328p/core/core.h>
 #include <hal/atmega328p/uart/uart.h>
@@ -13,12 +14,14 @@
 
 #include <SparkFun_UHF_RFID_Reader.h>
 
+bool_t testComms();
 bool_t setupNano(long baudRate);
 
 RFID nano;
 
 int main(void)
 {
+	bool_t outputLvl = TRUE; 
 	gpio_t LED;
 
 	LED.port = port_b;
@@ -28,19 +31,51 @@ int main(void)
 	/* Replace with your application code */
 	while (1) 
 	{
-		if (!setupNano(38400))
-			gpio_outputLogicHigh(LED);
-		else
-			gpio_outputLogicLow(LED);
-		DELAY_MS_CONST(500);
+		outputLvl = testComms();
+		gpio_outputLogic(LED, outputLvl);
 	}
 }
 
+// Test comms
+bool_t testComms()
+{
+	uart_params_t params;
+
+	params.baudRate = baud_115200;
+	params.multiProcessorMode = FALSE;
+	params.numDataBits = 8;
+	params.numStopBits = 1;
+	params.parity = no_parity;
+
+	if (!nano.begin(params))
+		return FALSE;
+
+	char_t test[25];
+	uint16_t len = sprintf(test, "Testing\r\n");
+	uart_transaction_t transac;
+
+	UART_INIT_TRANSAC_OBJ(transac);
+	transac.data = (uint8_t *)test;
+	transac.len = len;
+	uart_setAsyncTxData(transac);
+
+	//for (uint16_t i = 0; i < len; i++)
+		//test[i] = 0;
+//
+	//while (uart_numAsyncRxBytesInBuff() != len)
+		//DELAY_MS_CONST(1);
+//
+	//uart_getAsyncRxBytes(transac, 25);
+	//for (uint16_t i = 0; i < len; i++)
+		//if ((char_t)transac.data[i] != test[i])
+			//return FALSE;
+
+	DELAY_MS_CONST(1000);
+	return TRUE;
+}
 
 //Gracefully handles a reader that is already configured and already reading continuously
-
 //Because Stream does not have a .begin() we have to do this outside the library
-
 bool_t setupNano(long baudRate)
 {
 	uart_params_t params;
