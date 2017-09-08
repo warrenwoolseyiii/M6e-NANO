@@ -14,7 +14,6 @@
 
 #include <SparkFun_UHF_RFID_Reader.h>
 
-bool_t testComms();
 bool_t setupNano(long baudRate);
 
 RFID nano;
@@ -27,17 +26,20 @@ int main(void)
 	LED.port = port_b;
 	LED.pin = pin_5;
 	gpio_setMode(LED, output);
+	gpio_outputLogicLow(LED);
 	
 	/* Replace with your application code */
 	while (1) 
 	{
-		outputLvl = testComms();
+		DELAY_MS_CONST(1000);
+		outputLvl = setupNano(38400);
 		gpio_outputLogic(LED, outputLvl);
 	}
 }
 
-// Test comms
-bool_t testComms()
+//Gracefully handles a reader that is already configured and already reading continuously
+//Because Stream does not have a .begin() we have to do this outside the library
+bool_t setupNano(long baudRate)
 {
 	uart_params_t params;
 
@@ -50,68 +52,29 @@ bool_t testComms()
 	if (!nano.begin(params))
 		return FALSE;
 
-	char_t test[25];
-	uint16_t len = sprintf(test, "Testing\r\n");
-	uart_transaction_t transac;
-
-	UART_INIT_TRANSAC_OBJ(transac);
-	transac.data = (uint8_t *)test;
-	transac.len = len;
-	uart_setAsyncTxData(transac);
-
-	//for (uint16_t i = 0; i < len; i++)
-		//test[i] = 0;
-//
-	//while (uart_numAsyncRxBytesInBuff() != len)
-		//DELAY_MS_CONST(1);
-//
-	//uart_getAsyncRxBytes(transac, 25);
-	//for (uint16_t i = 0; i < len; i++)
-		//if ((char_t)transac.data[i] != test[i])
-			//return FALSE;
-
-	DELAY_MS_CONST(1000);
-	return TRUE;
-}
-
-//Gracefully handles a reader that is already configured and already reading continuously
-//Because Stream does not have a .begin() we have to do this outside the library
-bool_t setupNano(long baudRate)
-{
-	uart_params_t params;
-
-	params.baudRate = baud_38400;
-	params.multiProcessorMode = FALSE;
-	params.numDataBits = 8;
-	params.numStopBits = 1;
-	params.parity = no_parity;
-
-	if (!nano.begin(params))
-		return FALSE;
-
 	while (uart_numAsyncRxBytesInBuff() > 0)
 		uart_flushAsyncRxBuff();
 
-	nano.getVersion();
-	if (nano.msg[0] == ERROR_WRONG_OPCODE_RESPONSE)
-	{
-		nano.stopReading();
-		DELAY_MS_CONST(1500);
-	}
-	else
-	{
-		params.baudRate = baud_115200;
-		params.multiProcessorMode = FALSE;
-		params.numDataBits = 8;
-		params.numStopBits = 1;
-		params.parity = no_parity;
-		
-		nano.begin(params);
-		nano.setBaud(baudRate); //Tell the module to go to the chosen baud rate. Ignore the response msg
-
-		params.baudRate = baud_38400;
-		nano.begin(params);
-	}
+	//nano.getVersion();
+	//if (nano.msg[0] == ERROR_WRONG_OPCODE_RESPONSE)
+	//{
+		//nano.stopReading();
+		//DELAY_MS_CONST(1500);
+	//}
+	//else
+	//{
+		//params.baudRate = baud_115200;
+		//params.multiProcessorMode = FALSE;
+		//params.numDataBits = 8;
+		//params.numStopBits = 1;
+		//params.parity = no_parity;
+		//
+		//nano.begin(params);
+		//nano.setBaud(baudRate); //Tell the module to go to the chosen baud rate. Ignore the response msg
+//
+		//params.baudRate = baud_38400;
+		//nano.begin(params);
+	//}
 
 	//Test the connection
 	nano.getVersion();
