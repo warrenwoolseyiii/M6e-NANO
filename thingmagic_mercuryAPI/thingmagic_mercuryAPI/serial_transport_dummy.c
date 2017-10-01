@@ -29,16 +29,18 @@
  */
 
 #include "tm_reader.h"
+#include "serialTransportStub.h"
+#include "osDepStub.h"
 
 /* Stub implementation of serial transport layer routines. */
 
 static TMR_Status
 s_open(TMR_SR_SerialTransport *this)
 {
+	if (!initSerialTransport(baud_115200))
+		return TMR_ERROR_UNIMPLEMENTED;
 
-  /* This routine should open the serial connection */
-
-  return TMR_ERROR_UNIMPLEMENTED;
+	return TMR_SUCCESS;
 }
 
 
@@ -46,13 +48,18 @@ static TMR_Status
 s_sendBytes(TMR_SR_SerialTransport *this, uint32_t length, 
                 uint8_t* message, const uint32_t timeoutMs)
 {
+	TMR_Status rtnCode;
+	uint64_t startTimeMillis = getSysUpTimeInMillis(); 
+	uint16_t len = (uint16_t)(length & 0xFFFF);
 
-  /* This routine should send length bytes, pointed to by message on
-   * the serial connection. If the transmission does not complete in
-   * timeoutMs milliseconds, it should return TMR_ERROR_TIMEOUT.
-   */
+	if (!send(message, len))
+		rtnCode = TMR_ERROR_TIMEOUT;
+	else if ((getSysUpTimeInMillis() - startTimeMillis) > (uint64_t)timeoutMs)
+		rtnCode = TMR_ERROR_TIMEOUT;
+	else
+		rtnCode = TMR_SUCCESS;
 
-  return TMR_ERROR_UNIMPLEMENTED;
+  return rtnCode;
 }
 
 
@@ -66,33 +73,36 @@ s_receiveBytes(TMR_SR_SerialTransport *this, uint32_t length,
    * message. If the required number of bytes are note received in
    * timeoutMs milliseconds, it should return TMR_ERROR_TIMEOUT.
    */
+	TMR_Status rtnCode;
+	uint64_t startTime = getSysUpTimeInMillis();
+	uint16_t len = (uint16_t)(length & 0xFFFF);
 
-  return TMR_ERROR_UNIMPLEMENTED;
+	if (!receive(message, len))
+		rtnCode = TMR_ERROR_TIMEOUT;
+	else if ((getSysUpTimeInMillis() - startTime) > (uint64_t)timeoutMs)
+		rtnCode = TMR_ERROR_TIMEOUT;
+	else
+		rtnCode = TMR_SUCCESS;
+
+  return rtnCode;
 }
 
 
 static TMR_Status
 s_setBaudRate(TMR_SR_SerialTransport *this, uint32_t rate)
 {
+	if (!initSerialTransport((uart_baud_rates_t)rate))
+		return TMR_ERROR_INVALID;
 
-  /* This routine should change the baud rate of the serial connection
-   * to the specified rate, or return TMR_ERROR_INVALID if the rate is
-   * not supported.
-   */
-
-  return TMR_ERROR_UNIMPLEMENTED;
+  return TMR_SUCCESS;
 }
 
 
 static TMR_Status
 s_shutdown(TMR_SR_SerialTransport *this)
 {
-
-  /* This routine should close the serial connection and release any
-   * acquired resources.
-   */
-
-  return TMR_ERROR_UNIMPLEMENTED;
+	takeDownSerialTransport();
+  return TMR_SUCCESS;
 }
 
 static TMR_Status
@@ -104,7 +114,7 @@ s_flush(TMR_SR_SerialTransport *this)
    * nothing.
    */
 
-  return TMR_ERROR_UNIMPLEMENTED;
+  return TMR_SUCCESS;
 }
 
 

@@ -7,32 +7,23 @@
 
 #include <stdint.h>
 #include "osdep.h"
-
+#include "osDepStub.h"
 
 uint32_t tmr_gettime_low()
 {
-  /* Fill in with code that returns the low 32 bits of a millisecond
-   * counter. The API will not otherwise interpret the counter value.
-   */
-  return 0;
+	uint64_t millis = getSysUpTimeInMillis();
+  return (millis & 0xFFFFFFFF);
 }
 
 uint32_t tmr_gettime_high()
 {
-  /* Fill in with code that returns the hugh 32 bits of a millisecond
-   * counter. The API will not otherwise interpret the counter value.
-   * Returning 0 is acceptable here if you do not have a large enough counter.
-   */
-  return 0;
+  uint64_t millis = getSysUpTimeInMillis();
+  return ((millis >> 32) & 0xFFFFFFFF);
 }
 
-void
-tmr_sleep(uint32_t sleepms)
+void tmr_sleep(uint32_t sleepms)
 {
-  /*
-   * Fill in with code that returns after at least sleepms milliseconds
-   * have elapsed.
-   */
+	variableDelayMillis((uint64_t)sleepms);
 }
 
 TMR_TimeStructure

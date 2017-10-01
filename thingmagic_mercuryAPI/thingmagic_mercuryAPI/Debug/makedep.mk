@@ -4,7 +4,11 @@
 
 hex_bytes.c
 
+osDepStub.c
+
 osdep_dummy.c
+
+serialTransportStub.c
 
 serial_reader.c
 

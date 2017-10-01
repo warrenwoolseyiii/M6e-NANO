@@ -38,7 +38,9 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../hex_bytes.c \
+../osDepStub.c \
 ../osdep_dummy.c \
+../serialTransportStub.c \
 ../serial_reader.c \
 ../serial_reader_l3.c \
 ../serial_transport_dummy.c \
@@ -56,7 +58,9 @@ ASM_SRCS +=
 
 OBJS +=  \
 hex_bytes.o \
+osDepStub.o \
 osdep_dummy.o \
+serialTransportStub.o \
 serial_reader.o \
 serial_reader_l3.o \
 serial_transport_dummy.o \
@@ -67,7 +71,9 @@ tm_reader.o
 
 OBJS_AS_ARGS +=  \
 hex_bytes.o \
+osDepStub.o \
 osdep_dummy.o \
+serialTransportStub.o \
 serial_reader.o \
 serial_reader_l3.o \
 serial_transport_dummy.o \
@@ -78,7 +84,9 @@ tm_reader.o
 
 C_DEPS +=  \
 hex_bytes.d \
+osDepStub.d \
 osdep_dummy.d \
+serialTransportStub.d \
 serial_reader.d \
 serial_reader_l3.d \
 serial_transport_dummy.d \
@@ -89,7 +97,9 @@ tm_reader.d
 
 C_DEPS_AS_ARGS +=  \
 hex_bytes.d \
+osDepStub.d \
 osdep_dummy.d \
+serialTransportStub.d \
 serial_reader.d \
 serial_reader_l3.d \
 serial_transport_dummy.d \
@@ -106,7 +116,8 @@ ADDITIONAL_DEPENDENCIES:=
 
 OUTPUT_FILE_DEP:= ./makedep.mk
 
-LIB_DEP+= 
+LIB_DEP+=  \
+C:/Users/warre/Repositories/RFID/ATMEGA328p_HAL/HAL_Dev/Debug/libHAL_Dev.a
 
 LINKER_SCRIPT_DEP+= 
 
@@ -131,10 +142,14 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
 ./%.o: .././%.c
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DTMR_ENABLE_SERIAL_READER_ONLY=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG -DTMR_ENABLE_SERIAL_READER_ONLY=1  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../../../../ATMEGA328p_HAL/HAL_Dev"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
