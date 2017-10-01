@@ -4,17 +4,11 @@
  *                       Proprietary and confidential.                        *
  * Written by Warren Woolsey                                                  *
  * ========================================================================== */
-#include "mercuryAPI/osDepStub.h"
-#include "mercuryAPI/serialTransportStub.h"
+#include <osDepStub.h>
 
 int main(void)
 {
-	if (!initOsDepStub())
-		return 0;
-
-	if (!initSerialTransport(baud_115200))
-		return 0;
-
+	initOsDepStub();
 	while (1)
 	{
 		
