@@ -4,19 +4,22 @@
  *                       Proprietary and confidential.                        *
  * Written by Warren Woolsey                                                  *
  * ========================================================================== */
-#include "mercuryAPI/osDepStub.h"
-#include "mercuryAPI/serialTransportStub.h"
+#ifndef OSDEPSTUB_H_
+#define OSDEPSTUB_H_
 
-int main(void)
-{
-	if (!initOsDepStub())
-		return 0;
+#include <hal/atmega328p/core/core.h>
 
-	if (!initSerialTransport(baud_115200))
-		return 0;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-	while (1)
-	{
-		
-	}
+// globally defined functions
+bool_t initOsDepStub();
+uint64_t getSysUpTimeInMillis();
+void variableDelayMillis(uint64_t durationInMillis);
+
+#ifdef __cplusplus
 }
+#endif /* __cplusplus */
+
+#endif /* OSDEPSTUB_H_ */

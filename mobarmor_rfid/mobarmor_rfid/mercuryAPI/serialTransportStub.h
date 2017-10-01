@@ -4,19 +4,25 @@
  *                       Proprietary and confidential.                        *
  * Written by Warren Woolsey                                                  *
  * ========================================================================== */
-#include "mercuryAPI/osDepStub.h"
-#include "mercuryAPI/serialTransportStub.h"
+#ifndef SERIALTRANSPORTSTUB_H_
+#define SERIALTRANSPORTSTUB_H_
 
-int main(void)
-{
-	if (!initOsDepStub())
-		return 0;
+#include <hal/atmega328p/core/core.h>
+#include <hal/atmega328p/uart/uart.h>
 
-	if (!initSerialTransport(baud_115200))
-		return 0;
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-	while (1)
-	{
-		
-	}
+// globally defined functions
+bool_t initSerialTransport(uart_baud_rates_t baud);
+void takeDownSerialTransport();
+bool_t send(uint8_t *data, uint16_t len);
+bool_t receive(uint8_t *data, uint16_t len);
+
+#ifdef __cplusplus
 }
+#endif /* __cplusplus */
+
+
+#endif /* SERIALTRANSPORTSTUB_H_ */

@@ -4,3 +4,7 @@
 
 main.cpp
 
+mercuryAPI\osDepStub.c
+
+mercuryAPI\serialTransportStub.c
+
