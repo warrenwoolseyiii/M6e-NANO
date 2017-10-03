@@ -1,0 +1,1 @@
+"./main.obj" "../lnk_msp430f5529.cmd" "C:/Users/warre/Repositories/RFID/Mob-Armor-RFID/thingmagic_mercuryAPI_msp430/Debug/thingmagic_mercuryAPI.lib" -llibmath.a -llibc.a 

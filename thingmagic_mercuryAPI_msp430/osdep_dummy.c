@@ -7,20 +7,23 @@
 
 #include <stdint.h>
 #include "osdep.h"
+#include "osDepStub.h"
 
 uint32_t tmr_gettime_low()
 {
-    return 0;
+    uint64_t millis = getSysUpTimeInMillis();
+    return (uint32_t)(millis & 0xFFFFFFFF);
 }
 
 uint32_t tmr_gettime_high()
 {
-    return 0;
+    uint64_t millis = getSysUpTimeInMillis();
+    return (uint32_t)((millis >> 32) & 0xFFFFFFFF);
 }
 
 void tmr_sleep(uint32_t sleepms)
 {
-
+    variableDelayMillis((uint64_t)sleepms);
 }
 
 TMR_TimeStructure
