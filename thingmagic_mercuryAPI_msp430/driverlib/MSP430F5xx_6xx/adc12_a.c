@@ -1,5 +1,5 @@
 /* --COPYRIGHT--,BSD
- * Copyright (c) 2014, Texas Instruments Incorporated
+ * Copyright (c) 2016, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,6 @@
 //
 //*****************************************************************************
 
-#include "inc/hw_regaccess.h"
 #include "inc/hw_memmap.h"
 
 #ifdef __MSP430_HAS_ADC12_PLUS__
@@ -117,16 +116,22 @@ void ADC12_A_disableSamplingTimer(uint16_t baseAddress)
 void ADC12_A_configureMemory(uint16_t baseAddress,
                              ADC12_A_configureMemoryParam *param)
 {
-    //Set the offset in respect to ADC12MCTL0
-    uint16_t memoryBufferControlOffset =
-        (OFS_ADC12MCTL0 + param->memoryBufferControlIndex);
+    //Make sure the ENC bit is cleared before configuring a Memory Buffer Control
+    assert(!(HWREG16(baseAddress + OFS_ADC12CTL0) & ADC12ENC));
 
-    //Reset the memory buffer control and Set the input source
-    HWREG8(baseAddress + memoryBufferControlOffset) =
-        param->inputSourceSelect //Set Input Source
-        + param->positiveRefVoltageSourceSelect //Set Vref+
-        + param->negativeRefVoltageSourceSelect //Set Vref-
-        + param->endOfSequence; //Set End of Sequence
+    if(!(HWREG16(baseAddress + OFS_ADC12CTL0) & ADC12ENC))
+    {
+        //Set the offset in respect to ADC12MCTL0
+        uint16_t memoryBufferControlOffset =
+            (OFS_ADC12MCTL0 + param->memoryBufferControlIndex);
+
+        //Reset the memory buffer control and Set the input source
+        HWREG8(baseAddress + memoryBufferControlOffset) =
+            param->inputSourceSelect //Set Input Source
+            + param->positiveRefVoltageSourceSelect //Set Vref+
+            + param->negativeRefVoltageSourceSelect //Set Vref-
+            + param->endOfSequence; //Set End of Sequence
+    }
 }
 
 void ADC12_A_enableInterrupt(uint16_t baseAddress,
@@ -275,4 +280,3 @@ uint16_t ADC12_A_isBusy(uint16_t baseAddress)
 //! @}
 //
 //*****************************************************************************
-//Released_Version_5_00_01

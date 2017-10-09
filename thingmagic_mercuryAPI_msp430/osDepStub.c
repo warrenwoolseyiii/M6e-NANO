@@ -20,10 +20,17 @@ __interrupt void sysTimerISR (void)
 void configureSysTimer()
 {
     Timer_A_initUpModeParam params;
+    uint32_t smclkFreq = UCS_getSMCLK();
 
+    if (smclkFreq == 0)
+        return;
+
+    // (smclkFreq / divider) / (timerPeriod + 1) = 1000
+    // ((smclkFreq / divider) / (1000)) - 1 = timerPeriod
+    // for now assume divider is always 1
+    params.timerPeriod = (smclkFreq / 1000) - 1;
     params.clockSource = TIMER_A_CLOCKSOURCE_SMCLK;
     params.clockSourceDivider = TIMER_A_CLOCKSOURCE_DIVIDER_1;
-    params.timerPeriod = 3999;  // assume SMCLK is 8 MHz -- 4,000,000 / (3,999 + 1) = 1,000
     params.timerInterruptEnable_TAIE = TIMER_A_TAIE_INTERRUPT_DISABLE;
     params.captureCompareInterruptEnable_CCR0_CCIE =
             TIMER_A_CAPTURECOMPARE_INTERRUPT_ENABLE;

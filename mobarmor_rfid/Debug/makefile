@@ -11,6 +11,46 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./main.obj" \
+"./driverlib/MSP430F5xx_6xx/adc10_a.obj" \
+"./driverlib/MSP430F5xx_6xx/adc12_a.obj" \
+"./driverlib/MSP430F5xx_6xx/aes.obj" \
+"./driverlib/MSP430F5xx_6xx/battbak.obj" \
+"./driverlib/MSP430F5xx_6xx/comp_b.obj" \
+"./driverlib/MSP430F5xx_6xx/crc.obj" \
+"./driverlib/MSP430F5xx_6xx/ctsd16.obj" \
+"./driverlib/MSP430F5xx_6xx/dac12_a.obj" \
+"./driverlib/MSP430F5xx_6xx/dma.obj" \
+"./driverlib/MSP430F5xx_6xx/eusci_a_spi.obj" \
+"./driverlib/MSP430F5xx_6xx/eusci_a_uart.obj" \
+"./driverlib/MSP430F5xx_6xx/eusci_b_i2c.obj" \
+"./driverlib/MSP430F5xx_6xx/eusci_b_spi.obj" \
+"./driverlib/MSP430F5xx_6xx/flashctl.obj" \
+"./driverlib/MSP430F5xx_6xx/gpio.obj" \
+"./driverlib/MSP430F5xx_6xx/lcd_b.obj" \
+"./driverlib/MSP430F5xx_6xx/ldopwr.obj" \
+"./driverlib/MSP430F5xx_6xx/mpy32.obj" \
+"./driverlib/MSP430F5xx_6xx/oa.obj" \
+"./driverlib/MSP430F5xx_6xx/pmap.obj" \
+"./driverlib/MSP430F5xx_6xx/pmm.obj" \
+"./driverlib/MSP430F5xx_6xx/ram.obj" \
+"./driverlib/MSP430F5xx_6xx/ref.obj" \
+"./driverlib/MSP430F5xx_6xx/rtc_a.obj" \
+"./driverlib/MSP430F5xx_6xx/rtc_b.obj" \
+"./driverlib/MSP430F5xx_6xx/rtc_c.obj" \
+"./driverlib/MSP430F5xx_6xx/sd24_b.obj" \
+"./driverlib/MSP430F5xx_6xx/sfr.obj" \
+"./driverlib/MSP430F5xx_6xx/sysctl.obj" \
+"./driverlib/MSP430F5xx_6xx/tec.obj" \
+"./driverlib/MSP430F5xx_6xx/timer_a.obj" \
+"./driverlib/MSP430F5xx_6xx/timer_b.obj" \
+"./driverlib/MSP430F5xx_6xx/timer_d.obj" \
+"./driverlib/MSP430F5xx_6xx/tlv.obj" \
+"./driverlib/MSP430F5xx_6xx/ucs.obj" \
+"./driverlib/MSP430F5xx_6xx/usci_a_spi.obj" \
+"./driverlib/MSP430F5xx_6xx/usci_a_uart.obj" \
+"./driverlib/MSP430F5xx_6xx/usci_b_i2c.obj" \
+"./driverlib/MSP430F5xx_6xx/usci_b_spi.obj" \
+"./driverlib/MSP430F5xx_6xx/wdt_a.obj" \
 "../lnk_msp430f5529.cmd" \
 "C:/Users/warre/Repositories/RFID/Mob-Armor-RFID/thingmagic_mercuryAPI_msp430/Debug/thingmagic_mercuryAPI.lib" \
 $(GEN_CMDS__FLAG) \
@@ -25,7 +65,9 @@ RMDIR := RMDIR /S/Q
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include subdir_vars.mk
+-include driverlib/MSP430F5xx_6xx/subdir_vars.mk
 -include subdir_rules.mk
+-include driverlib/MSP430F5xx_6xx/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -155,8 +197,10 @@ mobarmor_rfid.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.d" 
+	-$(RM) "main.obj" "driverlib\MSP430F5xx_6xx\adc10_a.obj" "driverlib\MSP430F5xx_6xx\adc12_a.obj" "driverlib\MSP430F5xx_6xx\aes.obj" "driverlib\MSP430F5xx_6xx\battbak.obj" "driverlib\MSP430F5xx_6xx\comp_b.obj" "driverlib\MSP430F5xx_6xx\crc.obj" "driverlib\MSP430F5xx_6xx\ctsd16.obj" "driverlib\MSP430F5xx_6xx\dac12_a.obj" "driverlib\MSP430F5xx_6xx\dma.obj" "driverlib\MSP430F5xx_6xx\eusci_a_spi.obj" "driverlib\MSP430F5xx_6xx\eusci_a_uart.obj" "driverlib\MSP430F5xx_6xx\eusci_b_i2c.obj" "driverlib\MSP430F5xx_6xx\eusci_b_spi.obj" "driverlib\MSP430F5xx_6xx\flashctl.obj" "driverlib\MSP430F5xx_6xx\gpio.obj" "driverlib\MSP430F5xx_6xx\lcd_b.obj" "driverlib\MSP430F5xx_6xx\ldopwr.obj" "driverlib\MSP430F5xx_6xx\mpy32.obj" "driverlib\MSP430F5xx_6xx\oa.obj" "driverlib\MSP430F5xx_6xx\pmap.obj" "driverlib\MSP430F5xx_6xx\pmm.obj" "driverlib\MSP430F5xx_6xx\ram.obj" "driverlib\MSP430F5xx_6xx\ref.obj" "driverlib\MSP430F5xx_6xx\rtc_a.obj" "driverlib\MSP430F5xx_6xx\rtc_b.obj" "driverlib\MSP430F5xx_6xx\rtc_c.obj" "driverlib\MSP430F5xx_6xx\sd24_b.obj" 
+	-$(RM) "driverlib\MSP430F5xx_6xx\sfr.obj" "driverlib\MSP430F5xx_6xx\sysctl.obj" "driverlib\MSP430F5xx_6xx\tec.obj" "driverlib\MSP430F5xx_6xx\timer_a.obj" "driverlib\MSP430F5xx_6xx\timer_b.obj" "driverlib\MSP430F5xx_6xx\timer_d.obj" "driverlib\MSP430F5xx_6xx\tlv.obj" "driverlib\MSP430F5xx_6xx\ucs.obj" "driverlib\MSP430F5xx_6xx\usci_a_spi.obj" "driverlib\MSP430F5xx_6xx\usci_a_uart.obj" "driverlib\MSP430F5xx_6xx\usci_b_i2c.obj" "driverlib\MSP430F5xx_6xx\usci_b_spi.obj" "driverlib\MSP430F5xx_6xx\wdt_a.obj" 
+	-$(RM) "main.d" "driverlib\MSP430F5xx_6xx\adc10_a.d" "driverlib\MSP430F5xx_6xx\adc12_a.d" "driverlib\MSP430F5xx_6xx\aes.d" "driverlib\MSP430F5xx_6xx\battbak.d" "driverlib\MSP430F5xx_6xx\comp_b.d" "driverlib\MSP430F5xx_6xx\crc.d" "driverlib\MSP430F5xx_6xx\ctsd16.d" "driverlib\MSP430F5xx_6xx\dac12_a.d" "driverlib\MSP430F5xx_6xx\dma.d" "driverlib\MSP430F5xx_6xx\eusci_a_spi.d" "driverlib\MSP430F5xx_6xx\eusci_a_uart.d" "driverlib\MSP430F5xx_6xx\eusci_b_i2c.d" "driverlib\MSP430F5xx_6xx\eusci_b_spi.d" "driverlib\MSP430F5xx_6xx\flashctl.d" "driverlib\MSP430F5xx_6xx\gpio.d" "driverlib\MSP430F5xx_6xx\lcd_b.d" "driverlib\MSP430F5xx_6xx\ldopwr.d" "driverlib\MSP430F5xx_6xx\mpy32.d" "driverlib\MSP430F5xx_6xx\oa.d" "driverlib\MSP430F5xx_6xx\pmap.d" "driverlib\MSP430F5xx_6xx\pmm.d" "driverlib\MSP430F5xx_6xx\ram.d" "driverlib\MSP430F5xx_6xx\ref.d" "driverlib\MSP430F5xx_6xx\rtc_a.d" "driverlib\MSP430F5xx_6xx\rtc_b.d" "driverlib\MSP430F5xx_6xx\rtc_c.d" "driverlib\MSP430F5xx_6xx\sd24_b.d" "driverlib\MSP430F5xx_6xx\sfr.d" 
+	-$(RM) "driverlib\MSP430F5xx_6xx\sysctl.d" "driverlib\MSP430F5xx_6xx\tec.d" "driverlib\MSP430F5xx_6xx\timer_a.d" "driverlib\MSP430F5xx_6xx\timer_b.d" "driverlib\MSP430F5xx_6xx\timer_d.d" "driverlib\MSP430F5xx_6xx\tlv.d" "driverlib\MSP430F5xx_6xx\ucs.d" "driverlib\MSP430F5xx_6xx\usci_a_spi.d" "driverlib\MSP430F5xx_6xx\usci_a_uart.d" "driverlib\MSP430F5xx_6xx\usci_b_i2c.d" "driverlib\MSP430F5xx_6xx\usci_b_spi.d" "driverlib\MSP430F5xx_6xx\wdt_a.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

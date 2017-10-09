@@ -1,5 +1,5 @@
 /* --COPYRIGHT--,BSD
- * Copyright (c) 2014, Texas Instruments Incorporated
+ * Copyright (c) 2016, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -450,7 +450,8 @@ extern void ADC10_A_disableSamplingTimer(uint16_t baseAddress);
 //! reference voltage, the internal REF module has to control the voltage
 //! level. Note that if a conversion has been started with the
 //! startConversion() function, then a call to disableConversions() is required
-//! before this function may be called.
+//! before this function may be called. If conversion is not disabled, this
+//! function does nothing.
 //!
 //! \param baseAddress is the base address of the ADC10_A module.
 //! \param inputSourceSelect is the input that will store the converted data
@@ -626,8 +627,8 @@ extern void ADC10_A_clearInterrupt(uint16_t baseAddress,
 //! \return The current interrupt flag status for the corresponding mask.
 //
 //*****************************************************************************
-extern uint8_t ADC10_A_getInterruptStatus(uint16_t baseAddress,
-                                          uint8_t interruptFlagMask);
+extern uint16_t ADC10_A_getInterruptStatus(uint16_t baseAddress,
+                                           uint8_t interruptFlagMask);
 
 //*****************************************************************************
 //
@@ -911,4 +912,3 @@ extern uint16_t ADC10_A_isBusy(uint16_t baseAddress);
 
 #endif
 #endif // __MSP430WARE_ADC10_A_H__
-//Released_Version_5_00_01

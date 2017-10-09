@@ -1,5 +1,5 @@
 /* --COPYRIGHT--,BSD
- * Copyright (c) 2014, Texas Instruments Incorporated
+ * Copyright (c) 2016, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,6 @@
 //
 //*****************************************************************************
 
-#include "inc/hw_regaccess.h"
 #include "inc/hw_memmap.h"
 
 #if defined(__MSP430_HAS_RTC_C__) || defined(__MSP430_HAS_RTC_CE__)
@@ -86,6 +85,8 @@ void RTC_C_initCounter(uint16_t baseAddress,
                        uint16_t clockSelect,
                        uint16_t counterSizeSelect)
 {
+    HWREG8(baseAddress + OFS_RTCCTL0_H) = RTCKEY_H;
+
     HWREG8(baseAddress + OFS_RTCCTL13) |= RTCHOLD;
     HWREG8(baseAddress + OFS_RTCCTL13) &= ~(RTCMODE);
 
@@ -216,6 +217,8 @@ void RTC_C_initCounterPrescale(uint16_t baseAddress,
                                uint16_t prescaleClockSelect,
                                uint16_t prescaleDivider)
 {
+    HWREG8(baseAddress + OFS_RTCCTL0_H) = RTCKEY_H;
+
     //Reset bits and set clock select
     HWREG16(baseAddress + OFS_RTCPS0CTL + prescaleSelect) =
         prescaleClockSelect + prescaleDivider;
@@ -401,4 +404,3 @@ uint16_t RTC_C_convertBinaryToBCD(uint16_t baseAddress,
 //! @}
 //
 //*****************************************************************************
-//Released_Version_5_00_01
