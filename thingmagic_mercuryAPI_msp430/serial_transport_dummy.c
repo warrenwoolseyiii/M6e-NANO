@@ -29,13 +29,17 @@
  */
 
 #include "tm_reader.h"
+#include "serialTransportStub.h"
 
 /* Stub implementation of serial transport layer routines. */
 
 static TMR_Status
 s_open(TMR_SR_SerialTransport *this)
 {
-	return TMR_ERROR_UNIMPLEMENTED;
+    if (STATUS_FAIL == initSerialTransport(115200UL))
+        return TMR_ERROR_UNIMPLEMENTED;
+
+    return TMR_SUCCESS;
 }
 
 
@@ -43,7 +47,10 @@ static TMR_Status
 s_sendBytes(TMR_SR_SerialTransport *this, uint32_t length, 
                 uint8_t* message, const uint32_t timeoutMs)
 {
-    return TMR_ERROR_UNIMPLEMENTED;
+    if (STATUS_FAIL == send(message, length, (uint64_t)timeoutMs))
+        return TMR_ERROR_TIMEOUT;
+
+    return TMR_SUCCESS;
 }
 
 
@@ -51,21 +58,28 @@ static TMR_Status
 s_receiveBytes(TMR_SR_SerialTransport *this, uint32_t length, 
                    uint32_t* messageLength, uint8_t* message, const uint32_t timeoutMs)
 {
-    return TMR_ERROR_UNIMPLEMENTED;
+    if (STATUS_FAIL == receive(message, length, (uint64_t)timeoutMs))
+        return TMR_ERROR_TIMEOUT;
+
+    return TMR_SUCCESS;
 }
 
 
 static TMR_Status
 s_setBaudRate(TMR_SR_SerialTransport *this, uint32_t rate)
 {
-    return TMR_ERROR_UNIMPLEMENTED;
+    if (STATUS_FAIL == initSerialTransport(rate))
+        return TMR_ERROR_INVALID;
+
+    return TMR_SUCCESS;
 }
 
 
 static TMR_Status
 s_shutdown(TMR_SR_SerialTransport *this)
 {
-    return TMR_ERROR_UNIMPLEMENTED;
+    takeDownSerialTransport();
+    return TMR_SUCCESS;
 }
 
 static TMR_Status
