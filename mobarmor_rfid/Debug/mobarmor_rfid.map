@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v16.9.1                     
 ******************************************************************************
->> Linked Sun Oct 08 22:18:14 2017
+>> Linked Thu Oct 12 20:48:09 2017
 
 OUTPUT FILE NAME:   <mobarmor_rfid.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 00004400
@@ -20,7 +20,7 @@ MEMORY CONFIGURATION
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   USBRAM                00001c00   00000800  00000000  00000800  RWIX
   RAM                   00002400   00002000  000003a9  00001c57  RWIX
-  FLASH                 00004400   0000bb80  000001f1  0000b98f  RWIX
+  FLASH                 00004400   0000bb80  000001f5  0000b98b  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -85,7 +85,7 @@ MEMORY CONFIGURATION
   INT61                 0000fffa   00000002  00000002  00000000  RWIX
   INT62                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FLASH2                00010000   00014400  0000c9ca  00007a36  RWIX
+  FLASH2                00010000   00014400  0000cbdc  00007824  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -122,24 +122,24 @@ section   page    origin      length       input sections
 
 .binit     0    00004400    00000000     
 
-.cinit     0    00004592    00000060     
-                  00004592    0000003e     (.cinit..data.load) [load image, compression = lzss]
-                  000045d0    0000000c     (__TI_handler_table)
-                  000045dc    00000006     (.cinit..bss.load) [load image, compression = zero_init]
-                  000045e2    00000010     (__TI_cinit_table)
+.cinit     0    00004596    00000060     
+                  00004596    0000003e     (.cinit..data.load) [load image, compression = lzss]
+                  000045d4    0000000c     (__TI_handler_table)
+                  000045e0    00000006     (.cinit..bss.load) [load image, compression = zero_init]
+                  000045e6    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00004400    00000000     UNINITIALIZED
 
-.const     0    00004434    0000015d     
+.const     0    00004434    00000161     
                   00004434    000000b2     thingmagic_mercuryAPI.lib : serial_reader.obj (.const:.string)
                   000044e6    0000002a                               : tm_reader.obj (.const:.string)
                   00004510    00000026                               : serial_reader_l3.obj (.const:.string)
                   00004536    00000020                               : serial_reader.obj (.const:$P$T2$4)
                   00004556    00000014     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.const:.string)
-                  0000456a    00000010     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.const:.string:$P$T0$1)
-                  0000457a    0000000e     main.obj (.const:.string)
-                  00004588    00000009     thingmagic_mercuryAPI.lib : serial_reader.obj (.const:$P$T0$1)
+                  0000456a    00000012     main.obj (.const:.string)
+                  0000457c    00000010     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.const:.string:$P$T0$1)
+                  0000458c    00000009                               : serial_reader.obj (.const:$P$T0$1)
 
 RTC        0    0000ffd2    00000002     
                   0000ffd2    00000002     rts430x_lc_rd_eabi.lib : int41.obj (.int41)
@@ -218,7 +218,7 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.obj (.reset)
 
-.text      0    00010000    0000c9ca     
+.text      0    00010000    0000cbdc     
                   00010000    00001942     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:TMR_SR_addTagOp)
                   00011942    00000d5c                               : serial_reader.obj (.text:TMR_SR_paramGet)
                   0001269e    00000d2a                               : serial_reader.obj (.text:TMR_SR_paramSet)
@@ -247,181 +247,181 @@ SYSNMI     0    0000fffc    00000002
                   00016d1e    000001b0                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aInitialize)
                   00016ece    000001a2                               : serial_reader_l3.obj (.text:TMR_SR_msgAddHiggs2FullLoadImage)
                   00017070    00000190                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aAccessFifoWrite)
-                  00017200    0000017e                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aSetSfeParameters)
-                  0001737e    00000178                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aAccessFifoRead)
-                  000174f6    00000176                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReaderConfiguration)
-                  0001766c    00000174                               : serial_reader_l3.obj (.text:TMR_SR_sendMessage)
-                  000177e0    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aAccessFifoStatus)
-                  00017948    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetBatteryLevel)
-                  00017ab0    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetSensorValue)
-                  00017c18    00000168                               : serial_reader.obj (.text:setPortValues)
-                  00017d80    0000015a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPChangeEAS)
-                  00017eda    0000014e                               : serial_reader_l3.obj (.text:TMR_SR_cmdVersion)
-                  00018028    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2BlockErase)
-                  00018174    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aEndLog)
-                  000182c0    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetCalibrationData)
-                  0001840c    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetLogState)
-                  00018558    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetMeasurementSetup)
-                  000186a4    00000142                               : serial_reader_l3.obj (.text:TMR_SR_msgAddHiggs3BlockReadLock)
-                  000187e6    0000013a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddHiggs2PartialLoadImage)
-                  00018920    00000132     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_setfield)
-                  00018a52    0000012c     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPCalibrate)
-                  00018b7e    0000012a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPResetReadProtect)
-                  00018ca8    0000012a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPSetReadProtect)
-                  00018dd2    0000011c                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAntennaPortPowersAndSettlingTime)
-                  00018eee    00000118                               : serial_reader_l3.obj (.text:TMR_SR_msgAddMonza4QTReadWrite)
-                  00019006    00000118                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPChangeConfig)
-                  0001911e    00000112                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2DataRead)
-                  00019230    0000010e                               : tm_reader.obj (.text:validateReadPlan)
-                  0001933e    0000010a                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetGPIO)
-                  00019448    00000108                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetAntennaPortPowersAndSettlingTime)
-                  00019550    00000108                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2LockTag)
-                  00019658    00000108     ucs.obj (.text:privateUCSSourceClockFromDCO)
-                  00019760    00000104     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:getPortValues)
-                  00019864    00000102                               : serial_reader.obj (.text:TMR_SR_SerialReader_init)
-                  00019966    000000fe                               : serial_reader.obj (.text:TMR_SR_cmdProbeBaudRate)
-                  00019a64    000000ee                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomOp)
-                  00019b52    000000e6                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomWriteToMemMap)
-                  00019c38    000000e2     ucs.obj (.text:UCS_initFLL)
-                  00019d1a    000000de     ucs.obj (.text:privateUCSComputeCLKFrequency)
-                  00019df8    000000dc     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_pproc_diouxp)
-                  00019ed4    000000da     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:autoDetectAntennaList)
-                  00019fae    000000d8                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomGetTokenId)
-                  0001a086    000000d2     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:__TI_printfi_minimal)
-                  0001a158    000000cc     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_initSerialTransportTable)
-                  0001a224    000000ca                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAvailableProtocols)
-                  0001a2ee    000000c8                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetFrequencyHopTable)
-                  0001a3b6    000000c8                               : serial_reader.obj (.text:verifySearchStatus)
-                  0001a47e    000000c6                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2DataWrite)
-                  0001a544    000000c6                               : serial_reader_l3.obj (.text:TMR_SR_msgSetupReadTagSingle)
-                  0001a60a    000000c6                               : serial_reader.obj (.text:getSerialNumber)
-                  0001a6d0    000000c2                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2KillTag)
-                  0001a792    000000c0                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAntennaReturnLoss)
-                  0001a852    000000b4                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetFrequencyHopTable)
-                  0001a906    000000b2                               : serial_reader_l3.obj (.text:isContinuousReadParamSupported)
-                  0001a9b8    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdAntennaDetect)
-                  0001aa64    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdResetReaderStats)
-                  0001ab10    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetProtocolLicenseKey)
-                  0001abbc    000000a6     ucs.obj (.text:UCS_initClockSignal)
-                  0001ac62    000000a4     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_sendTimeout)
-                  0001ad06    000000a2                               : serial_reader.obj (.text:setProtocol)
-                  0001ada8    000000a0                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetFrequencyHopTime)
-                  0001ae48    00000098                               : serial_reader.obj (.text:setAntennaList)
-                  0001aee0    00000096                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetReaderWriteTimeOut)
-                  0001af76    00000094                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetHardwareVersion)
-                  0001b00a    00000092                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomWriteSec)
-                  0001b09c    0000008e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetBaudRate)
-                  0001b12a    0000008e                               : serial_reader.obj (.text:compareAntennas)
-                  0001b1b8    0000008c                               : serial_reader_l3.obj (.text:TMR_SR_cmdStopReading)
-                  0001b244    00000088                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReadTxPowerWithLimits)
-                  0001b2cc    00000088                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReaderWriteTimeOut)
-                  0001b354    00000086                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetGPIODirection)
-                  0001b3da    00000084                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetRegionConfiguration)
-                  0001b45e    00000084                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetAntennaSearchList)
-                  0001b4e2    00000084                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2WriteTagEPC)
-                  0001b566    00000082                               : tm_reader.obj (.text:TMR_paramProbe)
-                  0001b5e8    00000082     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
-                  0001b66a    0000007e     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetFrequencyHopTime)
-                  0001b6e8    0000007e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetReadTxPower)
-                  0001b766    0000007e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetWriteTxPower)
-                  0001b7e4    0000007c                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAvailableRegions)
-                  0001b860    0000007c     timer_a.obj (.text:Timer_A_initUpMode)
-                  0001b8dc    00000078     rts430x_lc_rd_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  0001b954    00000070     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetReadTxPower)
-                  0001b9c4    00000070                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetWriteTxPower)
-                  0001ba34    0000006a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode)
-                  0001ba9e    00000068                               : tm_reader.obj (.text:TMR_reader_init_internal)
-                  0001bb06    00000066                               : serial_reader_l3.obj (.text:TMR_SR_cmdResetReaderStatistics)
-                  0001bb6c    00000066                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomReadFromMemMap)
-                  0001bbd2    00000066                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomReadSec)
-                  0001bc38    00000066     rts430x_lc_rd_eabi.lib : cpy_tbl.obj (.text:copy_in)
-                  0001bc9e    00000066     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:prepEmbReadTagMultiple)
-                  0001bd04    00000062                               : tm_reader.obj (.text:TMR_RP_init_simple)
-                  0001bd66    00000060                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetGPIODirection)
-                  0001bdc6    00000058     rts430x_lc_rd_eabi.lib : div32u.obj (.text)
-                  0001be1e    00000056     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdSetProtocol)
-                  0001be74    00000056                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetRegionLbt)
-                  0001beca    00000056                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetTxRxPorts)
-                  0001bf20    00000056                               : serial_reader_l3.obj (.text:tm_crc)
-                  0001bf76    00000054     rts430x_lc_rd_eabi.lib : strtok.obj (.text:strtok)
-                  0001bfca    00000052     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetCurrentProtocol)
-                  0001c01c    0000004e                               : serial_reader_l3.obj (.text:TMR_SR_sendBytes)
-                  0001c06a    0000004e                               : tm_reader.obj (.text:TMR__notifyTransportListeners)
-                  0001c0b8    0000004c                               : osDepStub.obj (.text:configureSysTimer)
-                  0001c104    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetPowerMode)
-                  0001c14c    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetRegion)
-                  0001c194    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetUserMode)
-                  0001c1dc    00000048     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_pproc_str)
-                  0001c224    00000046     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetTemperature)
-                  0001c26a    00000044     main.obj (.text:main)
-                  0001c2ae    00000044     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:sprintf)
-                  0001c2f2    00000040     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdSetPowerMode)
-                  0001c332    00000040                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetRegion)
-                  0001c372    00000040                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetUserMode)
-                  0001c3b2    00000040                               : serial_reader_l3.obj (.text:TMR_SR_msgSetupReadTagMultiple)
-                  0001c3f2    00000040     rts430x_lc_rd_eabi.lib : div32s.obj (.text)
-                  0001c432    0000003e     thingmagic_mercuryAPI.lib : hex_bytes.obj (.text:TMR_hexDottedQuad)
-                  0001c470    0000003e     rts430x_lc_rd_eabi.lib : asr32.obj (.text:l_asr_const)
-                  0001c4ae    0000003e                            : lsl32.obj (.text:l_lsl_const)
-                  0001c4ec    0000003e                            : lsr32.obj (.text:l_lsr_const)
-                  0001c52a    0000003a                            : lsl64.obj (.text:__mspabi_sllll)
-                  0001c564    0000003a                            : lsr64.obj (.text:__mspabi_srlll)
-                  0001c59e    00000036     ucs.obj (.text:UCS_initFLLSettle)
-                  0001c5d4    00000034     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:TMR_stringCopy)
-                  0001c608    00000032                               : serial_reader.obj (.text:getHardwareInfo)
-                  0001c63a    00000032     rts430x_lc_rd_eabi.lib : strncpy.obj (.text:strncpy)
-                  0001c66c    00000030     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_paramGet)
-                  0001c69c    0000002e     rts430x_lc_rd_eabi.lib : memmov.obj (.text:memmove)
-                  0001c6ca    0000002e                            : strncmp.obj (.text:strncmp)
-                  0001c6f8    0000002c                            : div16s.obj (.text)
-                  0001c724    0000002c                            : strcspn.obj (.text:strcspn)
-                  0001c750    0000002a                            : strspn.obj (.text:strspn)
-                  0001c77a    00000026     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_iso18000BBLFValToInt)
-                  0001c7a0    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  0001c7c4    00000024                            : mult32_f5hw.obj (.text)
-                  0001c7e8    00000022     main.obj (.text:init)
-                  0001c80a    00000020     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:_outs)
-                  0001c82a    0000001e                            : memccpy.obj (.text:memccpy)
-                  0001c848    0000001c                            : strcmp.obj (.text:strcmp)
-                  0001c864    0000001a     ucs.obj (.text:UCS_getSMCLK)
-                  0001c87e    00000018     rts430x_lc_rd_eabi.lib : mult16_f5hw.obj (.text)
-                  0001c896    00000018     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_memcpy)
-                  0001c8ae    00000016     rts430x_lc_rd_eabi.lib : memset.obj (.text:memset)
-                  0001c8c4    00000016                            : div16u.obj (.text)
-                  0001c8da    00000016     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_strcpy)
-                  0001c8f0    00000014     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:_outc)
-                  0001c904    00000014                            : memcpy.obj (.text:memcpy)
-                  0001c918    00000012                            : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
-                  0001c92a    00000012     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:prepForSearch)
-                  0001c93c    00000010     rts430x_lc_rd_eabi.lib : lsl32.obj (.text:l_lsl)
-                  0001c94c    00000010                            : lsr32.obj (.text:l_lsr)
-                  0001c95c    00000010     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_u8s_per_bits)
-                  0001c96c    0000000e                               : serial_reader_l3.obj (.text:TMR_SR_send)
-                  0001c97a    0000000e     rts430x_lc_rd_eabi.lib : strlen.obj (.text:strlen)
-                  0001c988    0000000a     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_paramSet)
-                  0001c992    0000000a     rts430x_lc_rd_eabi.lib : asr16.obj (.text)
-                  0001c99c    0000000a                            : lsl16.obj (.text)
-                  0001c9a6    0000000a                            : lsr16.obj (.text)
-                  0001c9b0    00000008     thingmagic_mercuryAPI.lib : osDepStub.obj (.text:initOsDepStub)
-                  0001c9b8    00000006                               : serial_transport_dummy.obj (.text:TMR_SR_SerialTransportNativeInit)
-                  0001c9be    00000006     rts430x_lc_rd_eabi.lib : exit.obj (.text:abort)
-                  0001c9c4    00000004                            : pre_init.obj (.text:_system_pre_init)
-                  0001c9c8    00000002                            : startup.obj (.text:_system_post_cinit)
+                  00017200    00000182     ucs.obj (.text:privateUCSSourceClockFromDCO)
+                  00017382    0000017e     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aSetSfeParameters)
+                  00017500    00000178                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aAccessFifoRead)
+                  00017678    00000176                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReaderConfiguration)
+                  000177ee    00000174                               : serial_reader_l3.obj (.text:TMR_SR_sendMessage)
+                  00017962    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aAccessFifoStatus)
+                  00017aca    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetBatteryLevel)
+                  00017c32    00000168                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetSensorValue)
+                  00017d9a    00000168                               : serial_reader.obj (.text:setPortValues)
+                  00017f02    0000015a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPChangeEAS)
+                  0001805c    00000150     ucs.obj (.text:privateUCSComputeCLKFrequency)
+                  000181ac    0000014e     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdVersion)
+                  000182fa    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2BlockErase)
+                  00018446    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aEndLog)
+                  00018592    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetCalibrationData)
+                  000186de    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetLogState)
+                  0001882a    0000014c                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIdsSL900aGetMeasurementSetup)
+                  00018976    00000142                               : serial_reader_l3.obj (.text:TMR_SR_msgAddHiggs3BlockReadLock)
+                  00018ab8    0000013a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddHiggs2PartialLoadImage)
+                  00018bf2    00000132     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_setfield)
+                  00018d24    0000012e     ucs.obj (.text:UCS_initFLL)
+                  00018e52    0000012c     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPCalibrate)
+                  00018f7e    0000012a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPResetReadProtect)
+                  000190a8    0000012a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPSetReadProtect)
+                  000191d2    0000011c                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAntennaPortPowersAndSettlingTime)
+                  000192ee    00000118                               : serial_reader_l3.obj (.text:TMR_SR_msgAddMonza4QTReadWrite)
+                  00019406    00000118                               : serial_reader_l3.obj (.text:TMR_SR_msgAddNXPChangeConfig)
+                  0001951e    00000112                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2DataRead)
+                  00019630    0000010e                               : tm_reader.obj (.text:validateReadPlan)
+                  0001973e    0000010a                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetGPIO)
+                  00019848    00000108                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetAntennaPortPowersAndSettlingTime)
+                  00019950    00000108                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2LockTag)
+                  00019a58    00000104                               : serial_reader.obj (.text:getPortValues)
+                  00019b5c    00000102                               : serial_reader.obj (.text:TMR_SR_SerialReader_init)
+                  00019c5e    000000fe                               : serial_reader.obj (.text:TMR_SR_cmdProbeBaudRate)
+                  00019d5c    000000fe     ucs.obj (.text:UCS_initClockSignal)
+                  00019e5a    000000ee     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomOp)
+                  00019f48    000000e6                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomWriteToMemMap)
+                  0001a02e    000000dc     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_pproc_diouxp)
+                  0001a10a    000000da     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:autoDetectAntennaList)
+                  0001a1e4    000000d8                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomGetTokenId)
+                  0001a2bc    000000d2     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:__TI_printfi_minimal)
+                  0001a38e    000000cc     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_initSerialTransportTable)
+                  0001a45a    000000ca                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAvailableProtocols)
+                  0001a524    000000c8                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetFrequencyHopTable)
+                  0001a5ec    000000c8                               : serial_reader.obj (.text:verifySearchStatus)
+                  0001a6b4    000000c6                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2DataWrite)
+                  0001a77a    000000c6                               : serial_reader_l3.obj (.text:TMR_SR_msgSetupReadTagSingle)
+                  0001a840    000000c6                               : serial_reader.obj (.text:getSerialNumber)
+                  0001a906    000000c2                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2KillTag)
+                  0001a9c8    000000c0                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAntennaReturnLoss)
+                  0001aa88    000000b4                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetFrequencyHopTable)
+                  0001ab3c    000000b4     timer_a.obj (.text:Timer_A_initUpMode)
+                  0001abf0    000000b2     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:isContinuousReadParamSupported)
+                  0001aca2    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdAntennaDetect)
+                  0001ad4e    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdResetReaderStats)
+                  0001adfa    000000ac                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetProtocolLicenseKey)
+                  0001aea6    000000a4                               : serial_reader_l3.obj (.text:TMR_SR_sendTimeout)
+                  0001af4a    000000a2                               : serial_reader.obj (.text:setProtocol)
+                  0001afec    000000a0                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetFrequencyHopTime)
+                  0001b08c    00000098                               : serial_reader.obj (.text:setAntennaList)
+                  0001b124    00000096                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetReaderWriteTimeOut)
+                  0001b1ba    00000094                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetHardwareVersion)
+                  0001b24e    00000092                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomWriteSec)
+                  0001b2e0    0000008e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetBaudRate)
+                  0001b36e    0000008e                               : serial_reader.obj (.text:compareAntennas)
+                  0001b3fc    0000008c                               : serial_reader_l3.obj (.text:TMR_SR_cmdStopReading)
+                  0001b488    00000088                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReadTxPowerWithLimits)
+                  0001b510    00000088                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetReaderWriteTimeOut)
+                  0001b598    00000086                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetGPIODirection)
+                  0001b61e    00000084                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetRegionConfiguration)
+                  0001b6a2    00000084                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetAntennaSearchList)
+                  0001b726    00000084                               : serial_reader_l3.obj (.text:TMR_SR_msgAddGEN2WriteTagEPC)
+                  0001b7aa    00000082                               : tm_reader.obj (.text:TMR_paramProbe)
+                  0001b82c    00000082     rts430x_lc_rd_eabi.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
+                  0001b8ae    0000007e     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetFrequencyHopTime)
+                  0001b92c    0000007e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetReadTxPower)
+                  0001b9aa    0000007e                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetWriteTxPower)
+                  0001ba28    0000007c                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetAvailableRegions)
+                  0001baa4    00000078     rts430x_lc_rd_eabi.lib : copy_decompress_lzss.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0001bb1c    00000070     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetReadTxPower)
+                  0001bb8c    00000070                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetWriteTxPower)
+                  0001bbfc    0000006a                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode)
+                  0001bc66    00000068                               : tm_reader.obj (.text:TMR_reader_init_internal)
+                  0001bcce    00000066                               : serial_reader_l3.obj (.text:TMR_SR_cmdResetReaderStatistics)
+                  0001bd34    00000066                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomReadFromMemMap)
+                  0001bd9a    00000066                               : serial_reader_l3.obj (.text:TMR_SR_msgAddIAVDenatranCustomReadSec)
+                  0001be00    00000066     rts430x_lc_rd_eabi.lib : cpy_tbl.obj (.text:copy_in)
+                  0001be66    00000066     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:prepEmbReadTagMultiple)
+                  0001becc    00000062                               : tm_reader.obj (.text:TMR_RP_init_simple)
+                  0001bf2e    00000060                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetGPIODirection)
+                  0001bf8e    0000005e     main.obj (.text:main)
+                  0001bfec    00000058     rts430x_lc_rd_eabi.lib : div32u.obj (.text)
+                  0001c044    00000056     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdSetProtocol)
+                  0001c09a    00000056                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetRegionLbt)
+                  0001c0f0    00000056                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetTxRxPorts)
+                  0001c146    00000056                               : serial_reader_l3.obj (.text:tm_crc)
+                  0001c19c    00000054     rts430x_lc_rd_eabi.lib : strtok.obj (.text:strtok)
+                  0001c1f0    00000052     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetCurrentProtocol)
+                  0001c242    0000004e                               : serial_reader_l3.obj (.text:TMR_SR_sendBytes)
+                  0001c290    0000004e                               : tm_reader.obj (.text:TMR__notifyTransportListeners)
+                  0001c2de    0000004e     ucs.obj (.text:UCS_initFLLSettle)
+                  0001c32c    0000004c     thingmagic_mercuryAPI.lib : osDepStub.obj (.text:configureSysTimer)
+                  0001c378    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetPowerMode)
+                  0001c3c0    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetRegion)
+                  0001c408    00000048                               : serial_reader_l3.obj (.text:TMR_SR_cmdGetUserMode)
+                  0001c450    00000048     rts430x_lc_rd_eabi.lib : _printfi_min.obj (.text:_pproc_str)
+                  0001c498    00000046     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdGetTemperature)
+                  0001c4de    00000044     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:sprintf)
+                  0001c522    00000040     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_SR_cmdSetPowerMode)
+                  0001c562    00000040                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetRegion)
+                  0001c5a2    00000040                               : serial_reader_l3.obj (.text:TMR_SR_cmdSetUserMode)
+                  0001c5e2    00000040                               : serial_reader_l3.obj (.text:TMR_SR_msgSetupReadTagMultiple)
+                  0001c622    00000040     rts430x_lc_rd_eabi.lib : div32s.obj (.text)
+                  0001c662    0000003e     thingmagic_mercuryAPI.lib : hex_bytes.obj (.text:TMR_hexDottedQuad)
+                  0001c6a0    0000003e     rts430x_lc_rd_eabi.lib : asr32.obj (.text:l_asr_const)
+                  0001c6de    0000003e                            : lsl32.obj (.text:l_lsl_const)
+                  0001c71c    0000003e                            : lsr32.obj (.text:l_lsr_const)
+                  0001c75a    0000003a                            : lsl64.obj (.text:__mspabi_sllll)
+                  0001c794    0000003a                            : lsr64.obj (.text:__mspabi_srlll)
+                  0001c7ce    00000034     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:TMR_stringCopy)
+                  0001c802    00000032     ucs.obj (.text:UCS_getSMCLK)
+                  0001c834    00000032     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:getHardwareInfo)
+                  0001c866    00000032     rts430x_lc_rd_eabi.lib : strncpy.obj (.text:strncpy)
+                  0001c898    00000030     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_paramGet)
+                  0001c8c8    0000002e     rts430x_lc_rd_eabi.lib : memmov.obj (.text:memmove)
+                  0001c8f6    0000002e                            : strncmp.obj (.text:strncmp)
+                  0001c924    0000002c                            : div16s.obj (.text)
+                  0001c950    0000002c                            : strcspn.obj (.text:strcspn)
+                  0001c97c    0000002a                            : strspn.obj (.text:strspn)
+                  0001c9a6    00000026     thingmagic_mercuryAPI.lib : serial_reader_l3.obj (.text:TMR_iso18000BBLFValToInt)
+                  0001c9cc    00000024     rts430x_lc_rd_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  0001c9f0    00000024                            : mult32_f5hw.obj (.text)
+                  0001ca14    00000022     main.obj (.text:init)
+                  0001ca36    00000020     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:_outs)
+                  0001ca56    0000001e                            : memccpy.obj (.text:memccpy)
+                  0001ca74    0000001c                            : strcmp.obj (.text:strcmp)
+                  0001ca90    00000018                            : mult16_f5hw.obj (.text)
+                  0001caa8    00000018     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_memcpy)
+                  0001cac0    00000016     rts430x_lc_rd_eabi.lib : memset.obj (.text:memset)
+                  0001cad6    00000016                            : div16u.obj (.text)
+                  0001caec    00000016     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_strcpy)
+                  0001cb02    00000014     rts430x_lc_rd_eabi.lib : sprintf.obj (.text:_outc)
+                  0001cb16    00000014                            : memcpy.obj (.text:memcpy)
+                  0001cb2a    00000012                            : copy_decompress_none.obj (.text:decompress:none:__TI_decompress_none)
+                  0001cb3c    00000012     thingmagic_mercuryAPI.lib : serial_reader.obj (.text:prepForSearch)
+                  0001cb4e    00000010     rts430x_lc_rd_eabi.lib : lsl32.obj (.text:l_lsl)
+                  0001cb5e    00000010                            : lsr32.obj (.text:l_lsr)
+                  0001cb6e    00000010     thingmagic_mercuryAPI.lib : tmr_utils.obj (.text:tm_u8s_per_bits)
+                  0001cb7e    0000000e                               : serial_reader_l3.obj (.text:TMR_SR_send)
+                  0001cb8c    0000000e     rts430x_lc_rd_eabi.lib : strlen.obj (.text:strlen)
+                  0001cb9a    0000000a     thingmagic_mercuryAPI.lib : tm_reader.obj (.text:TMR_paramSet)
+                  0001cba4    0000000a     rts430x_lc_rd_eabi.lib : asr16.obj (.text)
+                  0001cbae    0000000a                            : lsl16.obj (.text)
+                  0001cbb8    0000000a                            : lsr16.obj (.text)
+                  0001cbc2    00000008     thingmagic_mercuryAPI.lib : osDepStub.obj (.text:initOsDepStub)
+                  0001cbca    00000006                               : serial_transport_dummy.obj (.text:TMR_SR_SerialTransportNativeInit)
+                  0001cbd0    00000006     rts430x_lc_rd_eabi.lib : exit.obj (.text:abort)
+                  0001cbd6    00000004                            : pre_init.obj (.text:_system_pre_init)
+                  0001cbda    00000002                            : startup.obj (.text:_system_post_cinit)
 
 MODULE SUMMARY
 
        Module                       code    ro data   rw data
        ------                       ----    -------   -------
     .\
-       main.obj                     102     14        0      
+       main.obj                     128     18        0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       102     14        0      
+       Total:                       128     18        0      
                                                              
     .\driverlib\MSP430F5xx_6xx\
-       ucs.obj                      958     0         8      
-       timer_a.obj                  124     0         0      
+       ucs.obj                      1406    0         8      
+       timer_a.obj                  180     0         0      
     +--+----------------------------+-------+---------+---------+
-       Total:                       1082    0         8      
+       Total:                       1586    0         8      
                                                              
     C:/Users/warre/Repositories/RFID/Mob-Armor-RFID/thingmagic_mercuryAPI_msp430/Debug/thingmagic_mercuryAPI.lib
        serial_reader_l3.obj         30060   54        32     
@@ -501,19 +501,19 @@ MODULE SUMMARY
        Stack:                       0       0         160    
        Linker Generated:            0       96        0      
     +--+----------------------------+-------+---------+---------+
-       Grand Total:                 51710   491       937    
+       Grand Total:                 52240   495       937    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 000045e2 records: 2, size/record: 8, table size: 16
-	.data: load addr=00004592, load size=0000003e bytes, run addr=000026c4, run size=00000046 bytes, compression=lzss
-	.bss: load addr=000045dc, load size=00000006 bytes, run addr=00002400, run size=00000223 bytes, compression=zero_init
+__TI_cinit_table @ 000045e6 records: 2, size/record: 8, table size: 16
+	.data: load addr=00004596, load size=0000003e bytes, run addr=000026c4, run size=00000046 bytes, compression=lzss
+	.bss: load addr=000045e0, load size=00000006 bytes, run addr=00002400, run size=00000223 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 000045d0 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 000045d4 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_zero_init
 	index: 1, handler: __TI_decompress_lzss
 	index: 2, handler: __TI_decompress_none
@@ -605,7 +605,7 @@ address   name
 00000732  ADC12MEM9                                       
 00000733  ADC12MEM9_H                                     
 00000732  ADC12MEM9_L                                     
-0001c9be  C$$EXIT                                         
+0001cbd0  C$$EXIT                                         
 000008c0  CBCTL0                                          
 000008c1  CBCTL0_H                                        
 000008c0  CBCTL0_L                                        
@@ -1034,120 +1034,120 @@ address   name
 000003e0  TB0EX0                                          
 000003ee  TB0IV                                           
 000003d0  TB0R                                            
-0001bd04  TMR_RP_init_simple                              
-00019864  TMR_SR_SerialReader_init                        
-0001c9b8  TMR_SR_SerialTransportNativeInit                
+0001becc  TMR_RP_init_simple                              
+00019b5c  TMR_SR_SerialReader_init                        
+0001cbca  TMR_SR_SerialTransportNativeInit                
 00010000  TMR_SR_addTagOp                                 
-0001a9b8  TMR_SR_cmdAntennaDetect                         
-00018dd2  TMR_SR_cmdGetAntennaPortPowersAndSettlingTime   
-0001a792  TMR_SR_cmdGetAntennaReturnLoss                  
-0001a224  TMR_SR_cmdGetAvailableProtocols                 
-0001b7e4  TMR_SR_cmdGetAvailableRegions                   
-0001bfca  TMR_SR_cmdGetCurrentProtocol                    
-0001a2ee  TMR_SR_cmdGetFrequencyHopTable                  
-0001b66a  TMR_SR_cmdGetFrequencyHopTime                   
-0001933e  TMR_SR_cmdGetGPIO                               
-0001bd66  TMR_SR_cmdGetGPIODirection                      
-0001af76  TMR_SR_cmdGetHardwareVersion                    
-0001c104  TMR_SR_cmdGetPowerMode                          
+0001aca2  TMR_SR_cmdAntennaDetect                         
+000191d2  TMR_SR_cmdGetAntennaPortPowersAndSettlingTime   
+0001a9c8  TMR_SR_cmdGetAntennaReturnLoss                  
+0001a45a  TMR_SR_cmdGetAvailableProtocols                 
+0001ba28  TMR_SR_cmdGetAvailableRegions                   
+0001c1f0  TMR_SR_cmdGetCurrentProtocol                    
+0001a524  TMR_SR_cmdGetFrequencyHopTable                  
+0001b8ae  TMR_SR_cmdGetFrequencyHopTime                   
+0001973e  TMR_SR_cmdGetGPIO                               
+0001bf2e  TMR_SR_cmdGetGPIODirection                      
+0001b1ba  TMR_SR_cmdGetHardwareVersion                    
+0001c378  TMR_SR_cmdGetPowerMode                          
 000150ee  TMR_SR_cmdGetProtocolConfiguration              
-0001b954  TMR_SR_cmdGetReadTxPower                        
-0001b244  TMR_SR_cmdGetReadTxPowerWithLimits              
-000174f6  TMR_SR_cmdGetReaderConfiguration                
+0001bb1c  TMR_SR_cmdGetReadTxPower                        
+0001b488  TMR_SR_cmdGetReadTxPowerWithLimits              
+00017678  TMR_SR_cmdGetReaderConfiguration                
 0001606e  TMR_SR_cmdGetReaderStatistics                   
 00015a4c  TMR_SR_cmdGetReaderStats                        
-0001b2cc  TMR_SR_cmdGetReaderWriteTimeOut                 
-0001c14c  TMR_SR_cmdGetRegion                             
-0001b3da  TMR_SR_cmdGetRegionConfiguration                
-0001c224  TMR_SR_cmdGetTemperature                        
-0001c194  TMR_SR_cmdGetUserMode                           
-0001b9c4  TMR_SR_cmdGetWriteTxPower                       
-00019966  TMR_SR_cmdProbeBaudRate                         
-0001bb06  TMR_SR_cmdResetReaderStatistics                 
-0001aa64  TMR_SR_cmdResetReaderStats                      
-00019448  TMR_SR_cmdSetAntennaPortPowersAndSettlingTime   
-0001b45e  TMR_SR_cmdSetAntennaSearchList                  
-0001b09c  TMR_SR_cmdSetBaudRate                           
-0001a852  TMR_SR_cmdSetFrequencyHopTable                  
-0001ada8  TMR_SR_cmdSetFrequencyHopTime                   
-0001b354  TMR_SR_cmdSetGPIODirection                      
-0001c2f2  TMR_SR_cmdSetPowerMode                          
-0001be1e  TMR_SR_cmdSetProtocol                           
+0001b510  TMR_SR_cmdGetReaderWriteTimeOut                 
+0001c3c0  TMR_SR_cmdGetRegion                             
+0001b61e  TMR_SR_cmdGetRegionConfiguration                
+0001c498  TMR_SR_cmdGetTemperature                        
+0001c408  TMR_SR_cmdGetUserMode                           
+0001bb8c  TMR_SR_cmdGetWriteTxPower                       
+00019c5e  TMR_SR_cmdProbeBaudRate                         
+0001bcce  TMR_SR_cmdResetReaderStatistics                 
+0001ad4e  TMR_SR_cmdResetReaderStats                      
+00019848  TMR_SR_cmdSetAntennaPortPowersAndSettlingTime   
+0001b6a2  TMR_SR_cmdSetAntennaSearchList                  
+0001b2e0  TMR_SR_cmdSetBaudRate                           
+0001aa88  TMR_SR_cmdSetFrequencyHopTable                  
+0001afec  TMR_SR_cmdSetFrequencyHopTime                   
+0001b598  TMR_SR_cmdSetGPIODirection                      
+0001c522  TMR_SR_cmdSetPowerMode                          
+0001c044  TMR_SR_cmdSetProtocol                           
 00013e32  TMR_SR_cmdSetProtocolConfiguration              
-0001ab10  TMR_SR_cmdSetProtocolLicenseKey                 
-0001b6e8  TMR_SR_cmdSetReadTxPower                        
+0001adfa  TMR_SR_cmdSetProtocolLicenseKey                 
+0001b92c  TMR_SR_cmdSetReadTxPower                        
 0001660c  TMR_SR_cmdSetReaderConfiguration                
-0001aee0  TMR_SR_cmdSetReaderWriteTimeOut                 
-0001c332  TMR_SR_cmdSetRegion                             
-0001be74  TMR_SR_cmdSetRegionLbt                          
-0001beca  TMR_SR_cmdSetTxRxPorts                          
-0001c372  TMR_SR_cmdSetUserMode                           
+0001b124  TMR_SR_cmdSetReaderWriteTimeOut                 
+0001c562  TMR_SR_cmdSetRegion                             
+0001c09a  TMR_SR_cmdSetRegionLbt                          
+0001c0f0  TMR_SR_cmdSetTxRxPorts                          
+0001c5a2  TMR_SR_cmdSetUserMode                           
 00014212  TMR_SR_cmdSetUserProfile                        
-0001b766  TMR_SR_cmdSetWriteTxPower                       
-0001b1b8  TMR_SR_cmdStopReading                           
-00017eda  TMR_SR_cmdVersion                               
-00018028  TMR_SR_msgAddGEN2BlockErase                     
+0001b9aa  TMR_SR_cmdSetWriteTxPower                       
+0001b3fc  TMR_SR_cmdStopReading                           
+000181ac  TMR_SR_cmdVersion                               
+000182fa  TMR_SR_msgAddGEN2BlockErase                     
 000169aa  TMR_SR_msgAddGEN2BlockPermaLock                 
 0001625c  TMR_SR_msgAddGEN2BlockWrite                     
-0001911e  TMR_SR_msgAddGEN2DataRead                       
-0001a47e  TMR_SR_msgAddGEN2DataWrite                      
-0001a6d0  TMR_SR_msgAddGEN2KillTag                        
-00019550  TMR_SR_msgAddGEN2LockTag                        
-0001b4e2  TMR_SR_msgAddGEN2WriteTagEPC                    
+0001951e  TMR_SR_msgAddGEN2DataRead                       
+0001a6b4  TMR_SR_msgAddGEN2DataWrite                      
+0001a906  TMR_SR_msgAddGEN2KillTag                        
+00019950  TMR_SR_msgAddGEN2LockTag                        
+0001b726  TMR_SR_msgAddGEN2WriteTagEPC                    
 00016ece  TMR_SR_msgAddHiggs2FullLoadImage                
-000187e6  TMR_SR_msgAddHiggs2PartialLoadImage             
-000186a4  TMR_SR_msgAddHiggs3BlockReadLock                
+00018ab8  TMR_SR_msgAddHiggs2PartialLoadImage             
+00018976  TMR_SR_msgAddHiggs3BlockReadLock                
 000155c2  TMR_SR_msgAddHiggs3FastLoadImage                
 0001537a  TMR_SR_msgAddHiggs3LoadImage                    
-0001ba34  TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode
-00019fae  TMR_SR_msgAddIAVDenatranCustomGetTokenId        
-00019a64  TMR_SR_msgAddIAVDenatranCustomOp                
-0001bb6c  TMR_SR_msgAddIAVDenatranCustomReadFromMemMap    
-0001bbd2  TMR_SR_msgAddIAVDenatranCustomReadSec           
-0001b00a  TMR_SR_msgAddIAVDenatranCustomWriteSec          
-00019b52  TMR_SR_msgAddIAVDenatranCustomWriteToMemMap     
-0001737e  TMR_SR_msgAddIdsSL900aAccessFifoRead            
-000177e0  TMR_SR_msgAddIdsSL900aAccessFifoStatus          
+0001bbfc  TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode
+0001a1e4  TMR_SR_msgAddIAVDenatranCustomGetTokenId        
+00019e5a  TMR_SR_msgAddIAVDenatranCustomOp                
+0001bd34  TMR_SR_msgAddIAVDenatranCustomReadFromMemMap    
+0001bd9a  TMR_SR_msgAddIAVDenatranCustomReadSec           
+0001b24e  TMR_SR_msgAddIAVDenatranCustomWriteSec          
+00019f48  TMR_SR_msgAddIAVDenatranCustomWriteToMemMap     
+00017500  TMR_SR_msgAddIdsSL900aAccessFifoRead            
+00017962  TMR_SR_msgAddIdsSL900aAccessFifoStatus          
 00017070  TMR_SR_msgAddIdsSL900aAccessFifoWrite           
-00018174  TMR_SR_msgAddIdsSL900aEndLog                    
-00017948  TMR_SR_msgAddIdsSL900aGetBatteryLevel           
-000182c0  TMR_SR_msgAddIdsSL900aGetCalibrationData        
-0001840c  TMR_SR_msgAddIdsSL900aGetLogState               
-00018558  TMR_SR_msgAddIdsSL900aGetMeasurementSetup       
-00017ab0  TMR_SR_msgAddIdsSL900aGetSensorValue            
+00018446  TMR_SR_msgAddIdsSL900aEndLog                    
+00017aca  TMR_SR_msgAddIdsSL900aGetBatteryLevel           
+00018592  TMR_SR_msgAddIdsSL900aGetCalibrationData        
+000186de  TMR_SR_msgAddIdsSL900aGetLogState               
+0001882a  TMR_SR_msgAddIdsSL900aGetMeasurementSetup       
+00017c32  TMR_SR_msgAddIdsSL900aGetSensorValue            
 00016d1e  TMR_SR_msgAddIdsSL900aInitialize                
 00015c62  TMR_SR_msgAddIdsSL900aSetCalibrationData        
 00015808  TMR_SR_msgAddIdsSL900aSetLogLimit               
 00015e68  TMR_SR_msgAddIdsSL900aSetLogMode                
 0001643a  TMR_SR_msgAddIdsSL900aSetPassword               
-00017200  TMR_SR_msgAddIdsSL900aSetSfeParameters          
+00017382  TMR_SR_msgAddIdsSL900aSetSfeParameters          
 00016b6a  TMR_SR_msgAddIdsSL900aStartLog                  
-00018eee  TMR_SR_msgAddMonza4QTReadWrite                  
-00018a52  TMR_SR_msgAddNXPCalibrate                       
-00019006  TMR_SR_msgAddNXPChangeConfig                    
-00017d80  TMR_SR_msgAddNXPChangeEAS                       
-00018b7e  TMR_SR_msgAddNXPResetReadProtect                
-00018ca8  TMR_SR_msgAddNXPSetReadProtect                  
+000192ee  TMR_SR_msgAddMonza4QTReadWrite                  
+00018e52  TMR_SR_msgAddNXPCalibrate                       
+00019406  TMR_SR_msgAddNXPChangeConfig                    
+00017f02  TMR_SR_msgAddNXPChangeEAS                       
+00018f7e  TMR_SR_msgAddNXPResetReadProtect                
+000190a8  TMR_SR_msgAddNXPSetReadProtect                  
 000133c8  TMR_SR_msgSetupMultipleProtocolSearch           
-0001c3b2  TMR_SR_msgSetupReadTagMultiple                  
+0001c5e2  TMR_SR_msgSetupReadTagMultiple                  
 0001487c  TMR_SR_msgSetupReadTagMultipleWithMetadata      
-0001a544  TMR_SR_msgSetupReadTagSingle                    
+0001a77a  TMR_SR_msgSetupReadTagSingle                    
 00014e4a  TMR_SR_receiveMessage                           
-0001c96c  TMR_SR_send                                     
-0001c01c  TMR_SR_sendBytes                                
-0001766c  TMR_SR_sendMessage                              
-0001ac62  TMR_SR_sendTimeout                              
-0001c06a  TMR__notifyTransportListeners                   
+0001cb7e  TMR_SR_send                                     
+0001c242  TMR_SR_sendBytes                                
+000177ee  TMR_SR_sendMessage                              
+0001aea6  TMR_SR_sendTimeout                              
+0001c290  TMR__notifyTransportListeners                   
 000167dc  TMR_create                                      
 00014562  TMR_fillReaderStats                             
-0001c432  TMR_hexDottedQuad                               
-0001c77a  TMR_iso18000BBLFValToInt                        
-0001c66c  TMR_paramGet                                    
-0001b566  TMR_paramProbe                                  
-0001c988  TMR_paramSet                                    
-0001ba9e  TMR_reader_init_internal                        
-0001c5d4  TMR_stringCopy                                  
-0001b860  Timer_A_initUpMode                              
+0001c662  TMR_hexDottedQuad                               
+0001c9a6  TMR_iso18000BBLFValToInt                        
+0001c898  TMR_paramGet                                    
+0001b7aa  TMR_paramProbe                                  
+0001cb9a  TMR_paramSet                                    
+0001bc66  TMR_reader_init_internal                        
+0001c7ce  TMR_stringCopy                                  
+0001ab3c  Timer_A_initUpMode                              
 000005d0  UCA0ABCTL                                       
 000005c6  UCA0BRW                                         
 000005c7  UCA0BRW_H                                       
@@ -1249,10 +1249,10 @@ address   name
 00000170  UCSCTL8                                         
 00000171  UCSCTL8_H                                       
 00000170  UCSCTL8_L                                       
-0001c864  UCS_getSMCLK                                    
-0001abbc  UCS_initClockSignal                             
-00019c38  UCS_initFLL                                     
-0001c59e  UCS_initFLLSettle                               
+0001c802  UCS_getSMCLK                                    
+00019d5c  UCS_initClockSignal                             
+00018d24  UCS_initFLL                                     
+0001c2de  UCS_initFLLSettle                               
 00000902  USBCNF                                          
 00000903  USBCNF_H                                        
 00000902  USBCNF_L                                        
@@ -1395,15 +1395,15 @@ address   name
 000000a0  __SYSMEM_SIZE                                   
 UNDEFED   __TI_BINIT_Base                                 
 UNDEFED   __TI_BINIT_Limit                                
-000045e2  __TI_CINIT_Base                                 
-000045f2  __TI_CINIT_Limit                                
-000045d0  __TI_Handler_Table_Base                         
-000045dc  __TI_Handler_Table_Limit                        
+000045e6  __TI_CINIT_Base                                 
+000045f6  __TI_CINIT_Limit                                
+000045d4  __TI_Handler_Table_Base                         
+000045e0  __TI_Handler_Table_Limit                        
 UNDEFED   __TI_INITARRAY_Base                             
 UNDEFED   __TI_INITARRAY_Limit                            
 0000442c  __TI_ISR_TRAP                                   
-0001b8dc  __TI_decompress_lzss                            
-0001c918  __TI_decompress_none                            
+0001baa4  __TI_decompress_lzss                            
+0001cb2a  __TI_decompress_none                            
 0000ffd2  __TI_int41                                      
 0000ffd4  __TI_int42                                      
 0000ffd6  __TI_int43                                      
@@ -1427,108 +1427,108 @@ UNDEFED   __TI_INITARRAY_Limit
 0000fffa  __TI_int61                                      
 0000fffc  __TI_int62                                      
 ffffffff  __TI_pprof_out_hndl                             
-0001a086  __TI_printfi_minimal                            
+0001a2bc  __TI_printfi_minimal                            
 ffffffff  __TI_prof_data_size                             
 ffffffff  __TI_prof_data_start                            
-0001c7a0  __TI_zero_init                                  
+0001c9cc  __TI_zero_init                                  
 ffffffff  __c_args__                                      
-0001c6f8  __mspabi_divi                                   
-0001c3f2  __mspabi_divli                                  
-0001c8c4  __mspabi_divu                                   
-0001bdc6  __mspabi_divul                                  
-0001c87e  __mspabi_mpyi_f5hw                              
-0001c7c4  __mspabi_mpyl_f5hw                              
-0001c6f8  __mspabi_remi                                   
-0001c3f2  __mspabi_remli                                  
-0001c8c4  __mspabi_remu                                   
-0001bdc6  __mspabi_remul                                  
-0001c99c  __mspabi_slli                                   
-0001c93c  __mspabi_slll                                   
-0001c4e6  __mspabi_slll_1                                 
-0001c4c2  __mspabi_slll_10                                
-0001c4be  __mspabi_slll_11                                
-0001c4ba  __mspabi_slll_12                                
-0001c4b6  __mspabi_slll_13                                
-0001c4b2  __mspabi_slll_14                                
-0001c4ae  __mspabi_slll_15                                
-0001c4e2  __mspabi_slll_2                                 
-0001c4de  __mspabi_slll_3                                 
-0001c4da  __mspabi_slll_4                                 
-0001c4d6  __mspabi_slll_5                                 
-0001c4d2  __mspabi_slll_6                                 
-0001c4ce  __mspabi_slll_7                                 
-0001c4ca  __mspabi_slll_8                                 
-0001c4c6  __mspabi_slll_9                                 
-0001c52a  __mspabi_sllll                                  
-0001c992  __mspabi_srai                                   
-0001c4a8  __mspabi_sral_1                                 
-0001c484  __mspabi_sral_10                                
-0001c480  __mspabi_sral_11                                
-0001c47c  __mspabi_sral_12                                
-0001c478  __mspabi_sral_13                                
-0001c474  __mspabi_sral_14                                
-0001c470  __mspabi_sral_15                                
-0001c4a4  __mspabi_sral_2                                 
-0001c4a0  __mspabi_sral_3                                 
-0001c49c  __mspabi_sral_4                                 
-0001c498  __mspabi_sral_5                                 
-0001c494  __mspabi_sral_6                                 
-0001c490  __mspabi_sral_7                                 
-0001c48c  __mspabi_sral_8                                 
-0001c488  __mspabi_sral_9                                 
-0001c9a6  __mspabi_srli                                   
-0001c94c  __mspabi_srll                                   
-0001c524  __mspabi_srll_1                                 
-0001c500  __mspabi_srll_10                                
-0001c4fc  __mspabi_srll_11                                
-0001c4f8  __mspabi_srll_12                                
-0001c4f4  __mspabi_srll_13                                
-0001c4f0  __mspabi_srll_14                                
-0001c4ec  __mspabi_srll_15                                
-0001c520  __mspabi_srll_2                                 
-0001c51c  __mspabi_srll_3                                 
-0001c518  __mspabi_srll_4                                 
-0001c514  __mspabi_srll_5                                 
-0001c510  __mspabi_srll_6                                 
-0001c50c  __mspabi_srll_7                                 
-0001c508  __mspabi_srll_8                                 
-0001c504  __mspabi_srll_9                                 
-0001c564  __mspabi_srlll                                  
-0001b5e8  _auto_init_hold_wdt                             
+0001c924  __mspabi_divi                                   
+0001c622  __mspabi_divli                                  
+0001cad6  __mspabi_divu                                   
+0001bfec  __mspabi_divul                                  
+0001ca90  __mspabi_mpyi_f5hw                              
+0001c9f0  __mspabi_mpyl_f5hw                              
+0001c924  __mspabi_remi                                   
+0001c622  __mspabi_remli                                  
+0001cad6  __mspabi_remu                                   
+0001bfec  __mspabi_remul                                  
+0001cbae  __mspabi_slli                                   
+0001cb4e  __mspabi_slll                                   
+0001c716  __mspabi_slll_1                                 
+0001c6f2  __mspabi_slll_10                                
+0001c6ee  __mspabi_slll_11                                
+0001c6ea  __mspabi_slll_12                                
+0001c6e6  __mspabi_slll_13                                
+0001c6e2  __mspabi_slll_14                                
+0001c6de  __mspabi_slll_15                                
+0001c712  __mspabi_slll_2                                 
+0001c70e  __mspabi_slll_3                                 
+0001c70a  __mspabi_slll_4                                 
+0001c706  __mspabi_slll_5                                 
+0001c702  __mspabi_slll_6                                 
+0001c6fe  __mspabi_slll_7                                 
+0001c6fa  __mspabi_slll_8                                 
+0001c6f6  __mspabi_slll_9                                 
+0001c75a  __mspabi_sllll                                  
+0001cba4  __mspabi_srai                                   
+0001c6d8  __mspabi_sral_1                                 
+0001c6b4  __mspabi_sral_10                                
+0001c6b0  __mspabi_sral_11                                
+0001c6ac  __mspabi_sral_12                                
+0001c6a8  __mspabi_sral_13                                
+0001c6a4  __mspabi_sral_14                                
+0001c6a0  __mspabi_sral_15                                
+0001c6d4  __mspabi_sral_2                                 
+0001c6d0  __mspabi_sral_3                                 
+0001c6cc  __mspabi_sral_4                                 
+0001c6c8  __mspabi_sral_5                                 
+0001c6c4  __mspabi_sral_6                                 
+0001c6c0  __mspabi_sral_7                                 
+0001c6bc  __mspabi_sral_8                                 
+0001c6b8  __mspabi_sral_9                                 
+0001cbb8  __mspabi_srli                                   
+0001cb5e  __mspabi_srll                                   
+0001c754  __mspabi_srll_1                                 
+0001c730  __mspabi_srll_10                                
+0001c72c  __mspabi_srll_11                                
+0001c728  __mspabi_srll_12                                
+0001c724  __mspabi_srll_13                                
+0001c720  __mspabi_srll_14                                
+0001c71c  __mspabi_srll_15                                
+0001c750  __mspabi_srll_2                                 
+0001c74c  __mspabi_srll_3                                 
+0001c748  __mspabi_srll_4                                 
+0001c744  __mspabi_srll_5                                 
+0001c740  __mspabi_srll_6                                 
+0001c73c  __mspabi_srll_7                                 
+0001c738  __mspabi_srll_8                                 
+0001c734  __mspabi_srll_9                                 
+0001c794  __mspabi_srlll                                  
+0001b82c  _auto_init_hold_wdt                             
 00004400  _c_int00_noargs_noexit                          
 0000fffe  _reset_vector                                   
 00004360  _stack                                          
 00002624  _sys_memory                                     
-0001c9c8  _system_post_cinit                              
-0001c9c4  _system_pre_init                                
-0001c9be  abort                                           
-0001b12a  compareAntennas                                 
-0001c0b8  configureSysTimer                               
-0001bc38  copy_in                                         
-0001c7e8  init                                            
-0001c9b0  initOsDepStub                                   
-0001a906  isContinuousReadParamSupported                  
+0001cbda  _system_post_cinit                              
+0001cbd6  _system_pre_init                                
+0001cbd0  abort                                           
+0001b36e  compareAntennas                                 
+0001c32c  configureSysTimer                               
+0001be00  copy_in                                         
+0001ca14  init                                            
+0001cbc2  initOsDepStub                                   
+0001abf0  isContinuousReadParamSupported                  
 00002622  isSecureAccessEnabled                           
-0001c26a  main                                            
-0001c82a  memccpy                                         
-0001c904  memcpy                                          
-0001c69c  memmove                                         
-0001c8ae  memset                                          
-0001c92a  prepForSearch                                   
-0001c2ae  sprintf                                         
-0001c848  strcmp                                          
-0001c724  strcspn                                         
-0001c97a  strlen                                          
-0001c6ca  strncmp                                         
-0001c63a  strncpy                                         
-0001c750  strspn                                          
-0001bf76  strtok                                          
+0001bf8e  main                                            
+0001ca56  memccpy                                         
+0001cb16  memcpy                                          
+0001c8c8  memmove                                         
+0001cac0  memset                                          
+0001cb3c  prepForSearch                                   
+0001c4de  sprintf                                         
+0001ca74  strcmp                                          
+0001c950  strcspn                                         
+0001cb8c  strlen                                          
+0001c8f6  strncmp                                         
+0001c866  strncpy                                         
+0001c97c  strspn                                          
+0001c19c  strtok                                          
 0000441a  sysTimerISR                                     
-0001c896  tm_memcpy                                       
-0001c8da  tm_strcpy                                       
-0001c95c  tm_u8s_per_bits                                 
-00019230  validateReadPlan                                
-0001a3b6  verifySearchStatus                              
+0001caa8  tm_memcpy                                       
+0001caec  tm_strcpy                                       
+0001cb6e  tm_u8s_per_bits                                 
+00019630  validateReadPlan                                
+0001a5ec  verifySearchStatus                              
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -2292,10 +2292,10 @@ address   name
 00004400  _c_int00_noargs_noexit                          
 0000441a  sysTimerISR                                     
 0000442c  __TI_ISR_TRAP                                   
-000045d0  __TI_Handler_Table_Base                         
-000045dc  __TI_Handler_Table_Limit                        
-000045e2  __TI_CINIT_Base                                 
-000045f2  __TI_CINIT_Limit                                
+000045d4  __TI_Handler_Table_Base                         
+000045e0  __TI_Handler_Table_Limit                        
+000045e6  __TI_CINIT_Base                                 
+000045f6  __TI_CINIT_Limit                                
 0000ffd2  __TI_int41                                      
 0000ffd4  __TI_int42                                      
 0000ffd6  __TI_int43                                      
@@ -2343,196 +2343,196 @@ address   name
 00016d1e  TMR_SR_msgAddIdsSL900aInitialize                
 00016ece  TMR_SR_msgAddHiggs2FullLoadImage                
 00017070  TMR_SR_msgAddIdsSL900aAccessFifoWrite           
-00017200  TMR_SR_msgAddIdsSL900aSetSfeParameters          
-0001737e  TMR_SR_msgAddIdsSL900aAccessFifoRead            
-000174f6  TMR_SR_cmdGetReaderConfiguration                
-0001766c  TMR_SR_sendMessage                              
-000177e0  TMR_SR_msgAddIdsSL900aAccessFifoStatus          
-00017948  TMR_SR_msgAddIdsSL900aGetBatteryLevel           
-00017ab0  TMR_SR_msgAddIdsSL900aGetSensorValue            
-00017d80  TMR_SR_msgAddNXPChangeEAS                       
-00017eda  TMR_SR_cmdVersion                               
-00018028  TMR_SR_msgAddGEN2BlockErase                     
-00018174  TMR_SR_msgAddIdsSL900aEndLog                    
-000182c0  TMR_SR_msgAddIdsSL900aGetCalibrationData        
-0001840c  TMR_SR_msgAddIdsSL900aGetLogState               
-00018558  TMR_SR_msgAddIdsSL900aGetMeasurementSetup       
-000186a4  TMR_SR_msgAddHiggs3BlockReadLock                
-000187e6  TMR_SR_msgAddHiggs2PartialLoadImage             
-00018a52  TMR_SR_msgAddNXPCalibrate                       
-00018b7e  TMR_SR_msgAddNXPResetReadProtect                
-00018ca8  TMR_SR_msgAddNXPSetReadProtect                  
-00018dd2  TMR_SR_cmdGetAntennaPortPowersAndSettlingTime   
-00018eee  TMR_SR_msgAddMonza4QTReadWrite                  
-00019006  TMR_SR_msgAddNXPChangeConfig                    
-0001911e  TMR_SR_msgAddGEN2DataRead                       
-00019230  validateReadPlan                                
-0001933e  TMR_SR_cmdGetGPIO                               
-00019448  TMR_SR_cmdSetAntennaPortPowersAndSettlingTime   
-00019550  TMR_SR_msgAddGEN2LockTag                        
-00019864  TMR_SR_SerialReader_init                        
-00019966  TMR_SR_cmdProbeBaudRate                         
-00019a64  TMR_SR_msgAddIAVDenatranCustomOp                
-00019b52  TMR_SR_msgAddIAVDenatranCustomWriteToMemMap     
-00019c38  UCS_initFLL                                     
-00019fae  TMR_SR_msgAddIAVDenatranCustomGetTokenId        
-0001a086  __TI_printfi_minimal                            
-0001a224  TMR_SR_cmdGetAvailableProtocols                 
-0001a2ee  TMR_SR_cmdGetFrequencyHopTable                  
-0001a3b6  verifySearchStatus                              
-0001a47e  TMR_SR_msgAddGEN2DataWrite                      
-0001a544  TMR_SR_msgSetupReadTagSingle                    
-0001a6d0  TMR_SR_msgAddGEN2KillTag                        
-0001a792  TMR_SR_cmdGetAntennaReturnLoss                  
-0001a852  TMR_SR_cmdSetFrequencyHopTable                  
-0001a906  isContinuousReadParamSupported                  
-0001a9b8  TMR_SR_cmdAntennaDetect                         
-0001aa64  TMR_SR_cmdResetReaderStats                      
-0001ab10  TMR_SR_cmdSetProtocolLicenseKey                 
-0001abbc  UCS_initClockSignal                             
-0001ac62  TMR_SR_sendTimeout                              
-0001ada8  TMR_SR_cmdSetFrequencyHopTime                   
-0001aee0  TMR_SR_cmdSetReaderWriteTimeOut                 
-0001af76  TMR_SR_cmdGetHardwareVersion                    
-0001b00a  TMR_SR_msgAddIAVDenatranCustomWriteSec          
-0001b09c  TMR_SR_cmdSetBaudRate                           
-0001b12a  compareAntennas                                 
-0001b1b8  TMR_SR_cmdStopReading                           
-0001b244  TMR_SR_cmdGetReadTxPowerWithLimits              
-0001b2cc  TMR_SR_cmdGetReaderWriteTimeOut                 
-0001b354  TMR_SR_cmdSetGPIODirection                      
-0001b3da  TMR_SR_cmdGetRegionConfiguration                
-0001b45e  TMR_SR_cmdSetAntennaSearchList                  
-0001b4e2  TMR_SR_msgAddGEN2WriteTagEPC                    
-0001b566  TMR_paramProbe                                  
-0001b5e8  _auto_init_hold_wdt                             
-0001b66a  TMR_SR_cmdGetFrequencyHopTime                   
-0001b6e8  TMR_SR_cmdSetReadTxPower                        
-0001b766  TMR_SR_cmdSetWriteTxPower                       
-0001b7e4  TMR_SR_cmdGetAvailableRegions                   
-0001b860  Timer_A_initUpMode                              
-0001b8dc  __TI_decompress_lzss                            
-0001b954  TMR_SR_cmdGetReadTxPower                        
-0001b9c4  TMR_SR_cmdGetWriteTxPower                       
-0001ba34  TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode
-0001ba9e  TMR_reader_init_internal                        
-0001bb06  TMR_SR_cmdResetReaderStatistics                 
-0001bb6c  TMR_SR_msgAddIAVDenatranCustomReadFromMemMap    
-0001bbd2  TMR_SR_msgAddIAVDenatranCustomReadSec           
-0001bc38  copy_in                                         
-0001bd04  TMR_RP_init_simple                              
-0001bd66  TMR_SR_cmdGetGPIODirection                      
-0001bdc6  __mspabi_divul                                  
-0001bdc6  __mspabi_remul                                  
-0001be1e  TMR_SR_cmdSetProtocol                           
-0001be74  TMR_SR_cmdSetRegionLbt                          
-0001beca  TMR_SR_cmdSetTxRxPorts                          
-0001bf76  strtok                                          
-0001bfca  TMR_SR_cmdGetCurrentProtocol                    
-0001c01c  TMR_SR_sendBytes                                
-0001c06a  TMR__notifyTransportListeners                   
-0001c0b8  configureSysTimer                               
-0001c104  TMR_SR_cmdGetPowerMode                          
-0001c14c  TMR_SR_cmdGetRegion                             
-0001c194  TMR_SR_cmdGetUserMode                           
-0001c224  TMR_SR_cmdGetTemperature                        
-0001c26a  main                                            
-0001c2ae  sprintf                                         
-0001c2f2  TMR_SR_cmdSetPowerMode                          
-0001c332  TMR_SR_cmdSetRegion                             
-0001c372  TMR_SR_cmdSetUserMode                           
-0001c3b2  TMR_SR_msgSetupReadTagMultiple                  
-0001c3f2  __mspabi_divli                                  
-0001c3f2  __mspabi_remli                                  
-0001c432  TMR_hexDottedQuad                               
-0001c470  __mspabi_sral_15                                
-0001c474  __mspabi_sral_14                                
-0001c478  __mspabi_sral_13                                
-0001c47c  __mspabi_sral_12                                
-0001c480  __mspabi_sral_11                                
-0001c484  __mspabi_sral_10                                
-0001c488  __mspabi_sral_9                                 
-0001c48c  __mspabi_sral_8                                 
-0001c490  __mspabi_sral_7                                 
-0001c494  __mspabi_sral_6                                 
-0001c498  __mspabi_sral_5                                 
-0001c49c  __mspabi_sral_4                                 
-0001c4a0  __mspabi_sral_3                                 
-0001c4a4  __mspabi_sral_2                                 
-0001c4a8  __mspabi_sral_1                                 
-0001c4ae  __mspabi_slll_15                                
-0001c4b2  __mspabi_slll_14                                
-0001c4b6  __mspabi_slll_13                                
-0001c4ba  __mspabi_slll_12                                
-0001c4be  __mspabi_slll_11                                
-0001c4c2  __mspabi_slll_10                                
-0001c4c6  __mspabi_slll_9                                 
-0001c4ca  __mspabi_slll_8                                 
-0001c4ce  __mspabi_slll_7                                 
-0001c4d2  __mspabi_slll_6                                 
-0001c4d6  __mspabi_slll_5                                 
-0001c4da  __mspabi_slll_4                                 
-0001c4de  __mspabi_slll_3                                 
-0001c4e2  __mspabi_slll_2                                 
-0001c4e6  __mspabi_slll_1                                 
-0001c4ec  __mspabi_srll_15                                
-0001c4f0  __mspabi_srll_14                                
-0001c4f4  __mspabi_srll_13                                
-0001c4f8  __mspabi_srll_12                                
-0001c4fc  __mspabi_srll_11                                
-0001c500  __mspabi_srll_10                                
-0001c504  __mspabi_srll_9                                 
-0001c508  __mspabi_srll_8                                 
-0001c50c  __mspabi_srll_7                                 
-0001c510  __mspabi_srll_6                                 
-0001c514  __mspabi_srll_5                                 
-0001c518  __mspabi_srll_4                                 
-0001c51c  __mspabi_srll_3                                 
-0001c520  __mspabi_srll_2                                 
-0001c524  __mspabi_srll_1                                 
-0001c52a  __mspabi_sllll                                  
-0001c564  __mspabi_srlll                                  
-0001c59e  UCS_initFLLSettle                               
-0001c5d4  TMR_stringCopy                                  
-0001c63a  strncpy                                         
-0001c66c  TMR_paramGet                                    
-0001c69c  memmove                                         
-0001c6ca  strncmp                                         
-0001c6f8  __mspabi_divi                                   
-0001c6f8  __mspabi_remi                                   
-0001c724  strcspn                                         
-0001c750  strspn                                          
-0001c77a  TMR_iso18000BBLFValToInt                        
-0001c7a0  __TI_zero_init                                  
-0001c7c4  __mspabi_mpyl_f5hw                              
-0001c7e8  init                                            
-0001c82a  memccpy                                         
-0001c848  strcmp                                          
-0001c864  UCS_getSMCLK                                    
-0001c87e  __mspabi_mpyi_f5hw                              
-0001c896  tm_memcpy                                       
-0001c8ae  memset                                          
-0001c8c4  __mspabi_divu                                   
-0001c8c4  __mspabi_remu                                   
-0001c8da  tm_strcpy                                       
-0001c904  memcpy                                          
-0001c918  __TI_decompress_none                            
-0001c92a  prepForSearch                                   
-0001c93c  __mspabi_slll                                   
-0001c94c  __mspabi_srll                                   
-0001c95c  tm_u8s_per_bits                                 
-0001c96c  TMR_SR_send                                     
-0001c97a  strlen                                          
-0001c988  TMR_paramSet                                    
-0001c992  __mspabi_srai                                   
-0001c99c  __mspabi_slli                                   
-0001c9a6  __mspabi_srli                                   
-0001c9b0  initOsDepStub                                   
-0001c9b8  TMR_SR_SerialTransportNativeInit                
-0001c9be  C$$EXIT                                         
-0001c9be  abort                                           
-0001c9c4  _system_pre_init                                
-0001c9c8  _system_post_cinit                              
+00017382  TMR_SR_msgAddIdsSL900aSetSfeParameters          
+00017500  TMR_SR_msgAddIdsSL900aAccessFifoRead            
+00017678  TMR_SR_cmdGetReaderConfiguration                
+000177ee  TMR_SR_sendMessage                              
+00017962  TMR_SR_msgAddIdsSL900aAccessFifoStatus          
+00017aca  TMR_SR_msgAddIdsSL900aGetBatteryLevel           
+00017c32  TMR_SR_msgAddIdsSL900aGetSensorValue            
+00017f02  TMR_SR_msgAddNXPChangeEAS                       
+000181ac  TMR_SR_cmdVersion                               
+000182fa  TMR_SR_msgAddGEN2BlockErase                     
+00018446  TMR_SR_msgAddIdsSL900aEndLog                    
+00018592  TMR_SR_msgAddIdsSL900aGetCalibrationData        
+000186de  TMR_SR_msgAddIdsSL900aGetLogState               
+0001882a  TMR_SR_msgAddIdsSL900aGetMeasurementSetup       
+00018976  TMR_SR_msgAddHiggs3BlockReadLock                
+00018ab8  TMR_SR_msgAddHiggs2PartialLoadImage             
+00018d24  UCS_initFLL                                     
+00018e52  TMR_SR_msgAddNXPCalibrate                       
+00018f7e  TMR_SR_msgAddNXPResetReadProtect                
+000190a8  TMR_SR_msgAddNXPSetReadProtect                  
+000191d2  TMR_SR_cmdGetAntennaPortPowersAndSettlingTime   
+000192ee  TMR_SR_msgAddMonza4QTReadWrite                  
+00019406  TMR_SR_msgAddNXPChangeConfig                    
+0001951e  TMR_SR_msgAddGEN2DataRead                       
+00019630  validateReadPlan                                
+0001973e  TMR_SR_cmdGetGPIO                               
+00019848  TMR_SR_cmdSetAntennaPortPowersAndSettlingTime   
+00019950  TMR_SR_msgAddGEN2LockTag                        
+00019b5c  TMR_SR_SerialReader_init                        
+00019c5e  TMR_SR_cmdProbeBaudRate                         
+00019d5c  UCS_initClockSignal                             
+00019e5a  TMR_SR_msgAddIAVDenatranCustomOp                
+00019f48  TMR_SR_msgAddIAVDenatranCustomWriteToMemMap     
+0001a1e4  TMR_SR_msgAddIAVDenatranCustomGetTokenId        
+0001a2bc  __TI_printfi_minimal                            
+0001a45a  TMR_SR_cmdGetAvailableProtocols                 
+0001a524  TMR_SR_cmdGetFrequencyHopTable                  
+0001a5ec  verifySearchStatus                              
+0001a6b4  TMR_SR_msgAddGEN2DataWrite                      
+0001a77a  TMR_SR_msgSetupReadTagSingle                    
+0001a906  TMR_SR_msgAddGEN2KillTag                        
+0001a9c8  TMR_SR_cmdGetAntennaReturnLoss                  
+0001aa88  TMR_SR_cmdSetFrequencyHopTable                  
+0001ab3c  Timer_A_initUpMode                              
+0001abf0  isContinuousReadParamSupported                  
+0001aca2  TMR_SR_cmdAntennaDetect                         
+0001ad4e  TMR_SR_cmdResetReaderStats                      
+0001adfa  TMR_SR_cmdSetProtocolLicenseKey                 
+0001aea6  TMR_SR_sendTimeout                              
+0001afec  TMR_SR_cmdSetFrequencyHopTime                   
+0001b124  TMR_SR_cmdSetReaderWriteTimeOut                 
+0001b1ba  TMR_SR_cmdGetHardwareVersion                    
+0001b24e  TMR_SR_msgAddIAVDenatranCustomWriteSec          
+0001b2e0  TMR_SR_cmdSetBaudRate                           
+0001b36e  compareAntennas                                 
+0001b3fc  TMR_SR_cmdStopReading                           
+0001b488  TMR_SR_cmdGetReadTxPowerWithLimits              
+0001b510  TMR_SR_cmdGetReaderWriteTimeOut                 
+0001b598  TMR_SR_cmdSetGPIODirection                      
+0001b61e  TMR_SR_cmdGetRegionConfiguration                
+0001b6a2  TMR_SR_cmdSetAntennaSearchList                  
+0001b726  TMR_SR_msgAddGEN2WriteTagEPC                    
+0001b7aa  TMR_paramProbe                                  
+0001b82c  _auto_init_hold_wdt                             
+0001b8ae  TMR_SR_cmdGetFrequencyHopTime                   
+0001b92c  TMR_SR_cmdSetReadTxPower                        
+0001b9aa  TMR_SR_cmdSetWriteTxPower                       
+0001ba28  TMR_SR_cmdGetAvailableRegions                   
+0001baa4  __TI_decompress_lzss                            
+0001bb1c  TMR_SR_cmdGetReadTxPower                        
+0001bb8c  TMR_SR_cmdGetWriteTxPower                       
+0001bbfc  TMR_SR_msgAddIAVDenatranCustomActivateSiniavMode
+0001bc66  TMR_reader_init_internal                        
+0001bcce  TMR_SR_cmdResetReaderStatistics                 
+0001bd34  TMR_SR_msgAddIAVDenatranCustomReadFromMemMap    
+0001bd9a  TMR_SR_msgAddIAVDenatranCustomReadSec           
+0001be00  copy_in                                         
+0001becc  TMR_RP_init_simple                              
+0001bf2e  TMR_SR_cmdGetGPIODirection                      
+0001bf8e  main                                            
+0001bfec  __mspabi_divul                                  
+0001bfec  __mspabi_remul                                  
+0001c044  TMR_SR_cmdSetProtocol                           
+0001c09a  TMR_SR_cmdSetRegionLbt                          
+0001c0f0  TMR_SR_cmdSetTxRxPorts                          
+0001c19c  strtok                                          
+0001c1f0  TMR_SR_cmdGetCurrentProtocol                    
+0001c242  TMR_SR_sendBytes                                
+0001c290  TMR__notifyTransportListeners                   
+0001c2de  UCS_initFLLSettle                               
+0001c32c  configureSysTimer                               
+0001c378  TMR_SR_cmdGetPowerMode                          
+0001c3c0  TMR_SR_cmdGetRegion                             
+0001c408  TMR_SR_cmdGetUserMode                           
+0001c498  TMR_SR_cmdGetTemperature                        
+0001c4de  sprintf                                         
+0001c522  TMR_SR_cmdSetPowerMode                          
+0001c562  TMR_SR_cmdSetRegion                             
+0001c5a2  TMR_SR_cmdSetUserMode                           
+0001c5e2  TMR_SR_msgSetupReadTagMultiple                  
+0001c622  __mspabi_divli                                  
+0001c622  __mspabi_remli                                  
+0001c662  TMR_hexDottedQuad                               
+0001c6a0  __mspabi_sral_15                                
+0001c6a4  __mspabi_sral_14                                
+0001c6a8  __mspabi_sral_13                                
+0001c6ac  __mspabi_sral_12                                
+0001c6b0  __mspabi_sral_11                                
+0001c6b4  __mspabi_sral_10                                
+0001c6b8  __mspabi_sral_9                                 
+0001c6bc  __mspabi_sral_8                                 
+0001c6c0  __mspabi_sral_7                                 
+0001c6c4  __mspabi_sral_6                                 
+0001c6c8  __mspabi_sral_5                                 
+0001c6cc  __mspabi_sral_4                                 
+0001c6d0  __mspabi_sral_3                                 
+0001c6d4  __mspabi_sral_2                                 
+0001c6d8  __mspabi_sral_1                                 
+0001c6de  __mspabi_slll_15                                
+0001c6e2  __mspabi_slll_14                                
+0001c6e6  __mspabi_slll_13                                
+0001c6ea  __mspabi_slll_12                                
+0001c6ee  __mspabi_slll_11                                
+0001c6f2  __mspabi_slll_10                                
+0001c6f6  __mspabi_slll_9                                 
+0001c6fa  __mspabi_slll_8                                 
+0001c6fe  __mspabi_slll_7                                 
+0001c702  __mspabi_slll_6                                 
+0001c706  __mspabi_slll_5                                 
+0001c70a  __mspabi_slll_4                                 
+0001c70e  __mspabi_slll_3                                 
+0001c712  __mspabi_slll_2                                 
+0001c716  __mspabi_slll_1                                 
+0001c71c  __mspabi_srll_15                                
+0001c720  __mspabi_srll_14                                
+0001c724  __mspabi_srll_13                                
+0001c728  __mspabi_srll_12                                
+0001c72c  __mspabi_srll_11                                
+0001c730  __mspabi_srll_10                                
+0001c734  __mspabi_srll_9                                 
+0001c738  __mspabi_srll_8                                 
+0001c73c  __mspabi_srll_7                                 
+0001c740  __mspabi_srll_6                                 
+0001c744  __mspabi_srll_5                                 
+0001c748  __mspabi_srll_4                                 
+0001c74c  __mspabi_srll_3                                 
+0001c750  __mspabi_srll_2                                 
+0001c754  __mspabi_srll_1                                 
+0001c75a  __mspabi_sllll                                  
+0001c794  __mspabi_srlll                                  
+0001c7ce  TMR_stringCopy                                  
+0001c802  UCS_getSMCLK                                    
+0001c866  strncpy                                         
+0001c898  TMR_paramGet                                    
+0001c8c8  memmove                                         
+0001c8f6  strncmp                                         
+0001c924  __mspabi_divi                                   
+0001c924  __mspabi_remi                                   
+0001c950  strcspn                                         
+0001c97c  strspn                                          
+0001c9a6  TMR_iso18000BBLFValToInt                        
+0001c9cc  __TI_zero_init                                  
+0001c9f0  __mspabi_mpyl_f5hw                              
+0001ca14  init                                            
+0001ca56  memccpy                                         
+0001ca74  strcmp                                          
+0001ca90  __mspabi_mpyi_f5hw                              
+0001caa8  tm_memcpy                                       
+0001cac0  memset                                          
+0001cad6  __mspabi_divu                                   
+0001cad6  __mspabi_remu                                   
+0001caec  tm_strcpy                                       
+0001cb16  memcpy                                          
+0001cb2a  __TI_decompress_none                            
+0001cb3c  prepForSearch                                   
+0001cb4e  __mspabi_slll                                   
+0001cb5e  __mspabi_srll                                   
+0001cb6e  tm_u8s_per_bits                                 
+0001cb7e  TMR_SR_send                                     
+0001cb8c  strlen                                          
+0001cb9a  TMR_paramSet                                    
+0001cba4  __mspabi_srai                                   
+0001cbae  __mspabi_slli                                   
+0001cbb8  __mspabi_srli                                   
+0001cbc2  initOsDepStub                                   
+0001cbca  TMR_SR_SerialTransportNativeInit                
+0001cbd0  C$$EXIT                                         
+0001cbd0  abort                                           
+0001cbd6  _system_pre_init                                
+0001cbda  _system_post_cinit                              
 ffffffff  __TI_pprof_out_hndl                             
 ffffffff  __TI_prof_data_size                             
 ffffffff  __TI_prof_data_start                            

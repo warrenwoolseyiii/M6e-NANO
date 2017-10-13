@@ -25,10 +25,13 @@ int16_t main(void)
 
     initOsDepStub();
     rp = &r;
-    ret = TMR_create(rp, "eapi:///COM2");
-    ret = TMR_connect(rp);
+    ret = TMR_create(rp, "tmr:///dev/ttyS1");
     if (ret != TMR_SUCCESS)
-        return 0;
+        goto FAIL;
+    ret = TMR_connect(rp);  // returning NOT FOUND because the key is wrong.. see serial_reader.c
+    if (ret != TMR_SUCCESS)
+        goto FAIL;
 
+    FAIL:
     while (1);
 }
