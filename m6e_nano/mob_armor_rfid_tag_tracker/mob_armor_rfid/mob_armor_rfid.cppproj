@@ -21,10 +21,10 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <eraseonlaunchrule>1</eraseonlaunchrule>
     <AssemblyName>mob_armor_rfid</AssemblyName>
@@ -40,6 +40,20 @@
         </dependencies>
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.avrdragon</avrtool>
+    <avrtoolserialnumber>00A200062326</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x1E950F</avrdeviceexpectedsignature>
+    <com_atmel_avrdbg_tool_avrdragon>
+      <ToolOptions>
+        <InterfaceProperties>
+        </InterfaceProperties>
+        <InterfaceName>debugWIRE</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.avrdragon</ToolType>
+      <ToolNumber>00A200062326</ToolNumber>
+      <ToolName>AVR Dragon</ToolName>
+    </com_atmel_avrdbg_tool_avrdragon>
+    <avrtoolinterface>debugWIRE</avrtoolinterface>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -68,6 +82,11 @@
           <ListValues>
             <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\EEPROM</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SoftwareSerial</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SPI</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire\utility</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
           </ListValues>
         </avrgcc.compiler.directories.IncludePaths>
@@ -97,6 +116,11 @@
           <ListValues>
             <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\EEPROM</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SoftwareSerial</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SPI</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire\utility</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
           </ListValues>
         </avrgcccpp.compiler.directories.IncludePaths>
@@ -150,6 +174,11 @@
           <ListValues>
             <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\EEPROM</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SoftwareSerial</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SPI</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire\utility</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
             <Value>../../../../submodules/SparkFun_Simultaneous_RFID_Tag_Reader_Library/src</Value>
           </ListValues>
@@ -180,6 +209,11 @@
           <ListValues>
             <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.2.132\include</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\core</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\EEPROM</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SoftwareSerial</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\SPI</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire</Value>
+            <Value>%24(ProjectDir)\..\ArduinoCore\include\libraries\Wire\utility</Value>
             <Value>%24(ProjectDir)\..\ArduinoCore\include\variants\standard</Value>
             <Value>../../../../submodules/SparkFun_Simultaneous_RFID_Tag_Reader_Library/src</Value>
           </ListValues>
@@ -210,11 +244,11 @@
   <ItemGroup>
     <Compile Include="..\..\..\submodules\SparkFun_Simultaneous_RFID_Tag_Reader_Library\src\SparkFun_UHF_RFID_Reader.cpp">
       <SubType>compile</SubType>
-      <Link>mob_armor_rfid\nano\SparkFun_UHF_RFID_Reader.cpp</Link>
+      <Link>mob_armor_rfid\M6E_NANO\SparkFun_UHF_RFID_Reader.cpp</Link>
     </Compile>
     <Compile Include="..\..\..\submodules\SparkFun_Simultaneous_RFID_Tag_Reader_Library\src\SparkFun_UHF_RFID_Reader.h">
       <SubType>compile</SubType>
-      <Link>mob_armor_rfid\nano\SparkFun_UHF_RFID_Reader.h</Link>
+      <Link>mob_armor_rfid\M6E_NANO\SparkFun_UHF_RFID_Reader.h</Link>
     </Compile>
     <Compile Include="Sketch.cpp">
       <SubType>compile</SubType>
@@ -225,13 +259,13 @@
   <ItemGroup>
     <ProjectReference Include="..\ArduinoCore\ArduinoCore.cppproj">
       <Name>ArduinoCore</Name>
-      <Project>9c3ee65f-4f0c-41b8-9654-22d983b520a0</Project>
+      <Project>ffaa0bf5-3045-4610-afc8-1ad6b8c75141</Project>
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mob_armor_rfid\" />
-    <Folder Include="mob_armor_rfid\nano\" />
+    <Folder Include="mob_armor_rfid\M6E_NANO\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "mob_armor_rfid", "mob_armor_rfid\mob_armor_rfid\mob_armor_rfid.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "mob_armor_rfid", "mob_armor_rfid_tag_tracker\mob_armor_rfid\mob_armor_rfid.cppproj", "{DCE6C7E3-EE26-4D79-826B-08594B9AD897}"
 EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "mob_armor_rfid\ArduinoCore\ArduinoCore.cppproj", "{9C3EE65F-4F0C-41B8-9654-22D983B520A0}"
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "ArduinoCore", "mob_armor_rfid_tag_tracker\ArduinoCore\ArduinoCore.cppproj", "{FFAA0BF5-3045-4610-AFC8-1AD6B8C75141}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Debug|AVR.Build.0 = Debug|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.ActiveCfg = Release|AVR
 		{DCE6C7E3-EE26-4D79-826B-08594B9AD897}.Release|AVR.Build.0 = Release|AVR
-		{9C3EE65F-4F0C-41B8-9654-22D983B520A0}.Debug|AVR.ActiveCfg = Debug|AVR
-		{9C3EE65F-4F0C-41B8-9654-22D983B520A0}.Debug|AVR.Build.0 = Debug|AVR
-		{9C3EE65F-4F0C-41B8-9654-22D983B520A0}.Release|AVR.ActiveCfg = Release|AVR
-		{9C3EE65F-4F0C-41B8-9654-22D983B520A0}.Release|AVR.Build.0 = Release|AVR
+		{FFAA0BF5-3045-4610-AFC8-1AD6B8C75141}.Debug|AVR.ActiveCfg = Debug|AVR
+		{FFAA0BF5-3045-4610-AFC8-1AD6B8C75141}.Debug|AVR.Build.0 = Debug|AVR
+		{FFAA0BF5-3045-4610-AFC8-1AD6B8C75141}.Release|AVR.ActiveCfg = Release|AVR
+		{FFAA0BF5-3045-4610-AFC8-1AD6B8C75141}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
