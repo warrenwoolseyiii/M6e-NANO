@@ -1,0 +1,3 @@
+[submodule "submodules/SparkFun_Simultaneous_RFID_Tag_Reader_Library"]
+	path = submodules/SparkFun_Simultaneous_RFID_Tag_Reader_Library
+	url = git@github.com:warrenwoolseyiii/SparkFun_Simultaneous_RFID_Tag_Reader_Library.git
