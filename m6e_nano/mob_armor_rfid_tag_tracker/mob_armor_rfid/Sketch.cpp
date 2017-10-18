@@ -11,6 +11,7 @@
 RFID gNano;
 SoftwareSerial gSoftSerial(2, 3);
 boolean gSystemReady;
+uint32_t gNumTags = 0;
 
 // file specific functions
 boolean setupNano(long baudRate);
@@ -26,13 +27,6 @@ void setup()
 		gSystemReady = false;
 		gNano.stopReading();
 		delay(2000);
-	}
-	else
-	{
-		gNano.setRegion(REGION_NORTHAMERICA);
-		gNano.setReadPower(500); // 5.00 dBm. Higher values may cause USB port to brown out
-		// Max Read TX Power is 27.00 dBm and may cause temperature-limit throttling
-		gNano.startReading();
 	}
 
 	pinMode(LED, OUTPUT);
@@ -87,29 +81,20 @@ boolean setupNano(long baudRate)
 	// The M6E has these settings no matter what
 	gNano.setTagProtocol(); // Set protocol to GEN2
 	gNano.setAntennaPort(); // Set TX/RX antenna ports to 1
+	gNano.setReadPower(500); // 5.00 dBm. Higher values may cause USB port to brown out
+	gNano.setWritePower(500); // 5.00 dBm. Higher values may cause USB port to brown out
+	gNano.setRegion(REGION_NORTHAMERICA);
 	return (true);
 }
 
 void scanForTags()
 {
-	if (gNano.check())	
-	{
-		byte response = gNano.parseResponse();
+	byte epc[12];
+	byte epcLen;
+	byte response = gNano.readTagEPC(epc, epcLen, 500);
 
-		switch (response)
-		{
-			case RESPONSE_IS_TAGFOUND:
-				// process tag
-				digitalWrite(LED, HIGH);
-				delay(1000);
-				digitalWrite(LED, LOW);
-				break;
-			case ERROR_CORRUPT_RESPONSE:
-				// report your error
-				break;
-			default:
-				// do nothing
-				break;
-		}
+	if (response == RESPONSE_SUCCESS)
+	{
+		gNumTags++;
 	}
 }
