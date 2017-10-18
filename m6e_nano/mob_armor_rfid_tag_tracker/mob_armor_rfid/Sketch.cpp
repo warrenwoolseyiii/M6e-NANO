@@ -25,8 +25,6 @@ void setup()
 	{
 		// log setup failure here
 		gSystemReady = false;
-		gNano.stopReading();
-		delay(2000);
 	}
 
 	pinMode(LED, OUTPUT);
