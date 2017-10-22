@@ -1,0 +1,9 @@
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\Demo.exe
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\Demo.pdb
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\MercuryAPI.dll
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\LLRP.dll
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\MercuryAPI.pdb
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\bin\Debug\MercuryAPI.xml
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\obj\Debug\Demo.csprojResolveAssemblyReference.cache
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\obj\Debug\Demo.exe
+C:\Users\warre\Repositories\RFID\Mob-Armor-RFID\mercuryapi-1.29.3.34\mercuryapi-1.29.3.34\cs\Samples\Demo\obj\Debug\Demo.pdb
