@@ -1,0 +1,14 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=URAHelp.chm
+Contents file=Table of Contents.hhc
+Default Font=Verdana,8,0
+Default topic=HTML_Files/defaultpage.htm
+Display compile progress=No
+Full-text search=Yes
+Language=0x409 English (United States)
+Title=Universal Reader Assistant User Guide
+
+
+[INFOTYPES]
+

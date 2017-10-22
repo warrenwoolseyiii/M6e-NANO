@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Write EPC</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Write EPC</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">Write EPC</a></p>
+</div>
+<div id="content">
+<p>The Write EPC tag operation tab allows the EPC of specific tags to be updated. The tag the operation will be applied to follows the rules defined in the two Tag Operations Workflows.
+
+<p>Once the tag to operate on has been set the WriteEPC tab supports the following workflow:</p>
+<ol type="1">
+
+<li>The EPC ID read and written can be represented in several formats. The format used to display the data in the Current and New EPC sections will both be in the selected format:
+<ul style="list-style-type:disc">
+<li><B>Hexidecimal </B>- direct hexidecimal representation of the raw data on the tag. This will match the cell value shown in the Tag Results Grid.</li>
+<li><B>ASCII </B>- interprets the data on the tag as ASCII characters. See the http://www.asciitable.com/ for a chart showing the corresponding hexidecimal value an ASCII character represents. Control characters may not be displayable.</li>
+<li><B>Reverse Base 36</B> - A method to represent an EPC with the fewer characters (19 characters for an EPC that would need 24 characters in hexadecimal). It contains all the uppercase letters of the alphabet plus numbers 0-9.</li>
+</ul>
+</li>
+
+<p> <B>Note : </B>Perform a Read then switch between the representations to better understand different representations of the same raw data.</p>
+
+<li>The <B>Current EPC </B>section will display the EPC of the tag that will be operated on based on the Write to selection. If clicking on Read results in a warning then the tag written to cannot be guaranteed.</li>
+
+<li>Once confident the desired tag is setup to be written to, clicking the Write button will cause the <B>New EPC </B>to be written to the tag.</li>
+
+</ol>
+
+<h2>Example</h2>
+<p>The following shows a typical scenario of writing a tag?s EPC ID using Workflows 2, selecting a specific tag:</p>
+<ol type="1">
+<li>A Read operation was performed with an Embedded ReadData on the TID memory bank resulting in the tags as shown in <I>Figure 10</I>.</li>
+</p>
+<center><img src="tagoperationworkflow2.png" alt="Tag Results - Tag Operation Workflow 2"></img></center>
+<center><p><B>Figure 10: Tag Results - Tag Operation Workflow 2</B></p></center>
+
+<li>Right-click on the TID value and select WriteEPC. The tab will switch to the WriteEPC tab with the Select criteria as shown in <I>Figure 11</I>. Since this tag was read on Antenna 3, the write operation will be attempted on antenna 3.</li>
+<li>This tag's EPC ID was previously written with ASCII data so switching to ASCII Text shows the ASCII interpretation of the raw data as shown in Figure 11.</li>
+</p>
+
+<center><img src="writeepcworkflow2.png" alt="Write EPC Workflow 2"></img></center>
+<center><p><B>Figure 11: Write EPC Workflow 2</B></p></center>
+
+<li>Once a New EPC is entered and Write clicked, if successful, a follow-up Read should show the newly written EPC, as shown in <I>Figure 12</I>.</li>
+</p>
+
+<center><img src="writeepc_successwriteread.png" alt="WriteEPC Successful Write and Read"></img></center>
+<center><p><B>Figure 12: WriteEPC Successful Write and Read</B></p></center> 
+</ol>
+
+<p><B>Note : </B> If the EPC ID is used for Select (right-click on the EPC cell) the Read operation will not work following a successful write. In general, using the current EPC ID as a select criteria for a write EPC is a bad idea since the operation cannot be easily reried in the event of a partial write.<p>
+</div>
+<div id="footer">
+</div>
+</div>
+
+ </BODY>
+</HTML>

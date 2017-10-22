@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Connect - Serial Readers</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Serial Readers</h1>
+<p>Navigation Path: <a href="connect.htm">Connect</a> > <a href="#">Serial Readers</a></p>
+</div>
+<div id="content">
+<center><img src="serialreader.png" alt="Connecting to a Serial Reader"></img></center>
+<p></p>
+<center><B>Figure 4: Connecting to a Serial Reader</B></center>
+
+<h2>Finding the assigned COM port</h2>
+<p>In order to connect to a serial reader (USB Reader, Vega, M5e/M6e devkits) the correct COM port must be selected from the drop down next to the Connect button. In order for the associated COM port to be displayed the reader must have been connected to the host prior to starting URA. If not, you can click Refresh to try and re-detect COM ports in use. The specific value depends on what the host system has assigned the new connection, typically it will be the last value in the list.</p>
+
+<h2>Baud Rate</h2>
+<p>If the reader is using a TTL/RS232 connection and you know the baud rate of reader being connected to you can select it prior to connecting. If you don't URA will attempt to figure it out. Once connected you can change the baud rate for faster communications, if supported.</p>
+<p>For native USB connections the baud rate setting does not apply.</p>
+
+<h2>Region</h2>
+<p>Once the connection is established the Status LED should change to YELLOW and the Region selection in the Connect section will change to the default region of the connected reader, similar to Figure 3. For Serial Readers, the region will indicate “Select” if the reader is in its default configuration. A region will be displayed if one has been previously selected, saved, and restored automatically on reboot. Reading is not permitted until a region has been selected.</p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

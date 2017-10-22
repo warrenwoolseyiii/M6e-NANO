@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Settings/Status - Display Option</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Display Option</h1>
+<p>Navigation Path: <a href="settings_status.htm">Settings/Status</a> > <a href="#">Display Option</a></p>
+</div>
+<div id="content">
+<p>This sections allows the content and behavior of the Tag Results Grid to be configured. It contains the following options:</p>
+
+<center><p><B>Table 4: Display Option</B></p></center>
+<table>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+Font Size
+</td>
+<td>
+Set the font size used in the Tag Results Grid. Smaller fonts enable more rows to be visible.
+</td>
+</tr>
+<tr>
+<td>
+Tag Aging
+</td>
+<td>
+When enabled (checked) the row of a tag will progress through multiple shades of gray as it “ages”, i.e. hasn?t been re-read in subsequent inventory rounds.
+</td>
+</tr>
+<tr>
+<td>
+Refresh Rate
+</td>
+<td>
+For most applications, leave this at its default value of 100 ms. If URA is used to read a large tag population (greater than 150 tags) over a very long period of time, the URA refresh rate should be changed to 999 msec. This gives the “garbage collection” routine enough time to  prevent memory leakage.
+</td>
+</tr>
+<tr>
+<td>
+Tag Results Column
+</td>
+<td>
+<p> Additional Columns of tag read meta data can be selected (click check-box in drop-down menu) to be displayed:</p>
+<ul style="list-style-type:disc">
+<li><B>Antenna</B> - The antenna on with the tag was read. If the same tag is read on more than one antenna there will be a tag entry for each antenna on which the tag was read.</li>
+<li><B>Protocol</B> - The protocol of the tag.</li>
+<li><B>Frequency</B> - The frequency on which the tag was read, in kHz.</li>
+<li><B>Phase</B> - Average phase of tag response in degrees (0°-180°)<l/i>
+<li><B>TagReadData</B> - The data read when the <I>Tag Data Settings | Read Data </I>option is selected. If the tag doesn?t have the requested data <I>"Read Data failed"</I> will be returned.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>
+TimeStamp Format
+</td>
+<td>
+Select timestamp format to be displayed.
+</td>
+</tr>
+<tr>
+<td>
+Big Num Selection
+</td>
+<td>
+Settings to optionally display various summary information, while querying, in a big number format.
+</td>
+</tr>
+</div>
+<div id="footer">
+</div>
+</div>
+</BODY>
+</HTML>

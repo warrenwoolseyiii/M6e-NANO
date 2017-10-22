@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Authenticate</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<style>
+
+</style>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Troubleshooting Table</h1>
+<p>Navigation Path: <a href="troubleshooting.htm">Troubleshooting</a> > <a href="#">Troubleshooting Table</a></p>
+</div>
+<div id="content">
+<center><p><B>Table 5: Common Problems and Solutions</B></p></center>
+<table>
+<tr>
+<th>Problem</th>
+    <th>Path to Solution</th>
+  </tr>
+  <tr>
+    <td>Cannot connect to reader</td>
+    <td>
+<p>• Verify the hostname, IP address or COM port is correct. See the hardware specific guide for more details on setting up a connection.</p>
+<p>• For the M6 and Astra-EX the reader control communicate uses the LLRP interface which uses <B>network port 5084</B>. Verify 5084 is not being blocked by the network firewall. </p>
+</td>
+  </tr>
+  <tr>
+    <td>Reader is not reading tags</td>
+    <td>
+<p>• Verify known good Gen2 tags are near the reader antenna.</p>
+<p>• Try modifying the Performance Tuning Options to force tags to respond more frequently.</p>
+<p>• Check antenna cables on reader</p>
+<p>• Increase the Read Power setting in Performance Tuning Options</p>
+</td>
+  </tr>
+  <tr>
+    <td>Reader error LED stays on</td>
+    <td><p>Following Collecting Diagnostic Data for ThingMagic Support and send to support.</p></td>
+  </tr>
+  <tr>
+    <td>Read “Performance” is slow</td>
+    <td>
+<p>Performance, as it relates to tag reading, is very usecase dependent. Typically, it comes down to whether you are trying to read lots of tags once or a few tags repeatedly. If the reader settings aren?t correct for your usecase the performance will appear poor.</p>
+<p>	• Use the Performance Tuning Options to modify the settings for your usecase.</p>
+<p>	• See the <I>MercuryAPI Programmer’s Guide | Performance Tuning</I> section for details about Gen2 settings and try using the Advanced Performance Tuning options directly.</p>
+</td>
+  </tr>
+  <tr>
+    <td>Errors after a Firmware Upgrade</td>
+    <td>
+<p>• If the upgrade was of the M6 from v4.7 to a newer version make sure to read the Release Notes of the newer version. There are special steps that must be taken to make that upgrade.</p>
+<p>• Try reinstalling the firmware and restarting URA.</p>
+</td>
+  </tr>
+</table>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>
+
+
+
+
+
+
+
+

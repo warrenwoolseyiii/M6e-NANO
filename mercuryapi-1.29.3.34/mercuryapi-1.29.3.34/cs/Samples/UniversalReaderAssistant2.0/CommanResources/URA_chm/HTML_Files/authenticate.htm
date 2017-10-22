@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Authenticate</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Authenticate</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">Authenticate</a></p>
+</div>
+<div id="content">
+<p>The “Authenticate” Tab is used to both insert and activate keys, as well as authenticate tags and obtain encrypted data using those keys.</p>
+
+<h2>Activating Keys</h2>
+<p>Two 16-byte keys are inserted into specific User memory locations, and are activated by writing a specific value into two other User memory locations. The keys may be freely read and edited until activated, at which point those memory locations become inaccessible. The two keys are called "Key0" and "Key1". Either may be used for authenticating the tag, but only Key1 may be used to decrypt data that has been encrypted by the tag.</p>
+<p>The key insertion and activation is controlled by the top portion of the "Authenticate" tab. These are the expected results for a tag that has never had a key written to it.</p>
+
+<center><img src="default_unactivated_keys.png" alt="Default Unactivated Keys"></img></center>
+<center><p><B>Figure 26: Default Unactivated Keys</B></p></center>
+
+<p><B>Note </B>that although the current value is shown with spaces between the bytes, you must enter the desired value without spaces, as shown here:</p>
+
+<center><img src="entering_key.png" alt="Entering a Key"></img></center>
+<center><p><B>Figure 27: Entering a Key</B></p></center>
+
+<p>When you press "Insert Keys", this pop-up message will be displayed:</p>
+
+<center><img src="success_message.png" alt="Success Message"></img></center>
+<center><p><B>Figure 28: Success Message</B></p></center> 
+
+<p>Note that the Current Key values will remain unchanged until you press "Read" again".</p>
+
+<center><img src="key_confirmation.png" alt="Key Confirmation" ></img></center>
+<center><p><B>Figure 29: Key Confirmation</B></p></center> 
+
+<p>Always make sure you read the keys to confirm that the value is what you want before activating them. Once activated, you cannot change the keys nor determine their current value. If you read a tag whose keys have been activated, you will get this result:</p>
+
+<center><img src="obscuring_of_keys_following_activation.png" alt="Obscuring of Keys Following Activation"></img></center>
+<center><p><B>Figure 30: Obscuring of Keys Following Activation</B></p></center> 
+
+<p> Note that there is no provision for only activating one of the keys. If you leave any key at its default "0000..." value, it will be activated to that value.</p>
+
+<h2>Tag Authentication</h2>
+<p>Tags are authenticated by having the reader send a random challenge string to the tag, the tag uses its key to encrypt the challenge, and sends the result back. The reader then uses the key to decrypt the message and, if the decrypted message is the one it sent to the tag, it declares the tag authentic.</p>
+<p>To authenticate the tag, enter key0 or key1 for the tag and press "Authenticate Key0" or "Authenticate Key1". You will see a success message and the same "Returned Challenge" value as the "Random Challenge" field above, as shown here:</p>
+
+<center><img src="successfull_tag_authentication.png" alt="Successful Tag Authentication"></img></center>
+<center><p><B>Figure 31: Successful Tag Authentication</B></p></center>
+
+<p>Key1 may also be used for tag authentication.</p>
+<p>If the key entered into the verification field does not match that in the tag, Universal Reader Assistant will still report that the Authentication Failed, as shown below. Note that the Returned Challenge will not match the Random Challenge value.</p>
+
+<center><img src="failed_tag_authentication.png" alt="Failed Tag Authentication"></img></center>
+<center><p><B>Figure 32: Failed Tag Authentication</B></p></center>
+
+<p> If you want to do repeated trials with different Random Challenge values, press "Refresh" by the Random Challenge value and a new random value will be generated. </p>
+
+<h2>Obtaining Encrypted Data With Authentication</h2>
+<p>You may obtain encrypted data as well as authenticate the tag by selecting "Enable Returned Data" and selecting which memory location you want returned. Note that data is selected in 64 bit (2 Word) increments. As for Authenticate, the value returned is only valid if the Returned Challenge matches the Random Challenge, as shown here:</p>
+
+<center><img src="successfull_authentication_with_returned_data.png" alt="Successful Authentication with Returned Data"></img></center>
+<center><p><B>Figure 33: Successful Authentication with Returned Data</B></p></center>
+
+<p>If the key used to decrypt the data does not match the one in the tag, the Returned Challenge will not match the Random Challenge and the data returned will not be valid. A message indicating that the authentication failed will be displayed as, shown below, and the Returned Challenge value will not match the Random Challenge value. The returned data will be incorrect, but displayed, so that the user can better understand how data encryption security works for Gen2V2 tags.</p>
+
+<center><img src="authentication_with_data_failure.png" alt="Authentication with Data Failure"></img></center>
+<center><p><B>Figure 34: Authentication with Data Failure</B></p></center>
+
+<p>Note that the Access Password is security is bypassed when encrypted data is being requested.</p>
+
+<h2>Obtaining Encrypted Data from Buffer</h2>
+<p>NXP tags have two options for obtaining encrypted data. The normal one is for the tag to backscatter the value. The other option is for the tag to put the data in a buffer for the reader to access. This access must be done before the tag is powered down, so cannot be used to obtain the data later. It is simply a different method for obtaining the data immediately.</p>
+<p>This method of obtaining the data is activated by selecting "Read from Buffer". The returned data is displayed as shown here. As with the normal encrypted data read function, it is only supported for Key1. </p>
+
+<center><img src="authentication_with_buffer_data_read_success.png" alt="Authenticate with Buffer Data Read Success"></img></center>
+<center><p><B>Figure 35: Authenticate with Buffer Data Read Success</B></p></center>
+
+<p>If the key does not match the one programmed into the tag, the authentication will fail, and the following error message will be displayed:</p>
+
+<center><img src="failure_of_authentication_with_buffer_data_read.png" alt="Failure of Authentication with Buffer Data Read" ></img></center>
+<center><p><B>Figure 36: Failure of Authentication with Buffer Data Read</B></p></center>
+
+<p>Note that the error message is a Gen2-level failure, not a failure detected upon comparison of the Returned Challenge and the Random Challenge, as was the case for non-buffer reads.</p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>
+
+
+
+
+
+

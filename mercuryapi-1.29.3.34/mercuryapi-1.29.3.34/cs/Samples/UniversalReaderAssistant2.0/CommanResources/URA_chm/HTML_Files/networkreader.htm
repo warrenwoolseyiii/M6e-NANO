@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Connect - Network Readers</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Network Reader</h1>
+<p>Navigation Path: <a href="connect.htm">Connect</a> > <a href="#">Network Reader</a></p>
+</div>
+<div id="content">
+<center><img src="networkreader.png" alt="Connect to a Network Reader"></img></center>
+<p></p>
+<center><B>Figure 2: Connect to a Network Reader</B></center>
+
+<h2>Finding a reader on the network</h2>
+<p>If <a href="applebonjour.htm">Apple Bonjour mDNS Discovery Service</a> has been installed the Network Readers dropdown will contain a list of readers discovered on your network, select one and click Connect to continue.</p> 
+<p>If Bonjour has not been installed, in order to connect to a networked reader (Astra-EX, M6) the correct reader URI must be entered in the text box next to the Connect button. The specific value depends on the network configuration. The following are typical values for three common configurations, see the Hardware Guide for more details on figuring out the readers address.</p>
+<ul style="list-style-type:disc">
+<li><B>Direct to PC connection - </B>if the reader is configured with an ethernet cable going from the host PC directly to the reader the reader's IP address is likely either using the fallback static address of 10.0.0.101 or using a link local address and can be contacted using the automatic hostname such as M6- XXXXXX or astra-ex-XXXXXX (where XXXXXX is the last 6 digits of the MAC/LAN address, seen on the barcode label)</li>
+
+<p><B>Note:</B> On some systems, especially when using the Direct to PC connection, the hostname must end in “.local” for the connection to succeed. i.e. <I>m6-21071f.local</I></p>
+
+<li><B>DHCP on the LAN -</B> the reader should be identifiable using the automatic hostname such as M6-XXXXXX (where XXXXXX is the last 6 digits of the MAC/ LAN address, seen on the barcode label).</li>
+
+<li><B>Static IP on the LAN -</B> the assigned IP address should be used. Although the reader name display is a pull-down menu, it can also be manually edited to enter an IP address.</li>
+</ul>
+
+<p>Once the connection is established the Status LED should change to YELLOW and the Region selection in the Connect section will change to the region of the connected reader as shown in Figure 3. On networked readers the region of operation cannot be changed.</p>
+
+<center><img src="networkreader.png" alt="Connect to a Network Reader"></img></center>
+<p></p>
+<center><B>Figure 3: Connected to a Network Reader</B></center>
+
+<h2>Once connected go to WebUI for persistent settings</h2>
+
+<p>Once a connection to a networked reader is established the WebUI button will become active. Clicking on it will open up a browser to the reader's Web Interface which supports modifying the network configuration and making persistent changes to the Performance Settings of the reader. See the reader's Hardware Guide for details on using the WebUI.</p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

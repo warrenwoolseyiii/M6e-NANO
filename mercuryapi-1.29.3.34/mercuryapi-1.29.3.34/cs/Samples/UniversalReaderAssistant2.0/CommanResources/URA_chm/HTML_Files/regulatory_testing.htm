@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Settings/Status - Regulatory Testing</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Regulatory Testing</h1>
+<p>Navigation Path: <a href="settings_status.htm">Settings/Status</a> > <a href="#">Regulatory Testing</a></p>
+</div>
+<div id="content">
+<p>This section is used to create test signals and customize the hop table to adhere to local regulations that limit the channel frequency range beyond limitations imposed by the region setting.</p>
+
+<p><B>Note : </B> These settings do not apply to M6 or Astra-EX readers. Their hop table can only be limited by editing a configuration file on the reader.</p> 
+<p>Three tabbed choices are available:</p>
+<ul style="list-style-type:disc">
+<li>CW - will send an unmodulated carrier for a configurable amount of time (in msec). The channel used will be the first one in the hop table.</li>
+<li>PRBS - Will send a signal modulated with random data for a configurable amount of time (in msec). The channel used will be the first one in the hop table.</li>
+<li>Hop Table - Comma-separated (no spaces) list of all the channels in the hop table, in the order they will be used. Selecting a new region always refreshes the list to the default hop table for that region. ThingMagic modules support up to 62 entries in their hop table (no pre-defined regions currently have a hop table larger than 51 entries).</li>
+</ul>
+</div>
+<div id="footer">
+</div>
+</div>
+</BODY>
+</HTML>

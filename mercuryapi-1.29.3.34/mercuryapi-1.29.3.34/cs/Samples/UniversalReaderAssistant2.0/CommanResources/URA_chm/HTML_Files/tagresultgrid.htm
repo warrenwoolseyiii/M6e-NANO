@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Basic Reading - Tag Results Grid</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Tag Results Grid</h1>
+<p>Navigation Path: <a href="basicreading.htm">Basic Reading</a> > <a href="#">Tag Results Grid</a></p>
+</div>
+<div id="content">
+<p>As shown in Figure 5, the default displayed tag results show the following columns of data:</p>
+<ul style="list-style-type:disc">
+<li><B>#</B> - The order each tag was read.</li>
+<li><B> EPC</B> - The EPC ID of the tag, typically 96-bits of data shown in Hex.</li>
+<li><B> Timestamp</B> - The timestamp when the tag was last seen during this query.</li>
+<li><B> RSSI</B> - The receive signal strength of the tag response, in dBm.</li>
+<li><B> ReadCount</B> - The number of times the tag was read on [Antenna].</li>
+</ul>
+<p>In addition to the above fields, additional fields can be displayed using the Display Options settings. These include:</p>
+<ul style="list-style-type:disc">
+<li><B> Antenna </B>- the number of the antenna over which the tag was read.</li>
+<li><B> Frequency </B>- the channel the reader was on when the tag was read, displayed in kHz (e.g. "915750").</li>
+<li><B> Phase </B>- The phase, from 0 to 180 degrees, between the outgoing carrier and the signal reflected back by the tag.</li>
+<li><B> Protocol </B>- Protocol used when the tag was read. (e.g. "Gen2", "ISO18000-6B", "IPX64", ATA etc). (Protocols are selected in the "Read/Write Options" panel. If only "Gen2" is displayed, then you have not applied the appropriate license to the module to read additional protocols.)</li>
+</ul>
+
+<p>If "Antenna" or "Frequency" are chosen, each combination of EPC, Antenna, and Frequency will be displayed on a separate line in the Tag Results Grid. </p>
+<p>Clicking on a column header will reorder the displayed tags based on that field.</p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

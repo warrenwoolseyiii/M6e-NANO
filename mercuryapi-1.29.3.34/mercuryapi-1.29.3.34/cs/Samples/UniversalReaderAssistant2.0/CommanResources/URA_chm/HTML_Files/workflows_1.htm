@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Workflows</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Workflows</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">Workflows</a></p>
+</div>
+<div id="content">
+<p>1. User Clicks on one of the tag operation tabs. This causes the following behavior:</p>
+<p>	First tag to respond is selected. This means when an operation is performed it will be performed on the first tag to respond. If more than one tag is in the field the tag to be operated on is non-deterministic. Clicking Read/Refresh buttons will often provide a warning indicating that more than one tag was found.</p>
+<p>	The first detected/selected antenna will be used for the operation.</p>
+<p>2. User right-clicks on EPC ID or Data (from enabling an Embedded ReadData) cell in the Tag Results Grid and selects a tag operation. This causes the following behavior:</p>
+<p>	A Select filter will be applied when the selected tag operation is invoked. The select filter to be applied will be shown in the top section of the operation tab.</p>
+<p>	The antenna the tag was read on (add the Antenna column in Display Options to the Tag Results Grid to see which) will be used for the tag operation.</p>
+
+<p>Note : Following workflow #2 does not guarantee the operation will be isolated to a specific tag. If you are not certain if the select critieria only applies to a single tag the Read/Refresh button can be used to check. Clicking it a few times should always show the same data and should not result in any warnings.</p>
+
+<p>Note : The best way to guarantee the select identifies a single tag is to add an EmbeddedReadData on TID memory?s Unique Identifier portion (use length =0) to your Read operation and right-click on the resulting Data cell in the Tag Results Grid.</p>
+
+<p>Once in a tag operations tab most of the Settings/Status options do not apply and will be disabled.</p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

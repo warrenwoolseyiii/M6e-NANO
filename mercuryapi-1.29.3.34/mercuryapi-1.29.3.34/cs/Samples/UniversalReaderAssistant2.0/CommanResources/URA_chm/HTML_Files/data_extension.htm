@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Settings/Status - Data Extensions(Demo Functionality)</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Data Extensions(Demo Functionality)</h1>
+<p>Navigation Path: <a href="settings_status.htm">Settings/Status</a> > <a href="#">Data Extensions(Demo Functionality)</a></p>
+</div>
+<div id="content">
+<p>The section provides demo functionality to stream data, as a server, to a network port where client applications can listen and recieve tag read data.</p>
+
+<p>When enabled tag read data will be sent to the specified network port in a tab-delimited format containing "[EPC ID] [Timestamp] [RSSI] [Antenna ID]", for example:</p>
+</p>
+<center><p>123422223333444455556666 6/24/2014 1:55:03 PM -22 1</p></center>
+<center><p>AAAABBBBCCCCDDDDEEEEFFFF 6/24/2014 1:55:03 PM -81 1</p></center>
+
+</p>
+<p>Any client that can connect to the specified network port can connect and receive the data.</p>
+
+<p><B>Note : </B>Current functionality is limited to a single client connection.</p>
+<p><B>Note : </B>Current tag read data is not buffered. If no client is connected tag reads will be not be sent. Once connected tag read data will be seen from the time of connection forward.</p>
+
+<h2>Testing Data Extensions</h2>
+<p>To enable data extensions simply select Enable Data Extensions:</p>
+
+<center><img src="enable_data_extension.png" alt="Enable Data Extensions"></img></center>
+</p>
+<center><B>Figure 7: Enable Data Extensions</B></center>
+
+<p>Once enabled clients can connect to the specified port. A simple test client to use is a telnet client. On Linux this can be invoked by simply entering:</p>
+<p><center>$ telnet [IP address of URA host] 9055</center></p>
+
+<p><B>Note : </B>On Windows a telnet client applications such as putty or teraterm (both can be found by running a websearch on their name). Follow each applications instructions for connect a telnet client to</p>
+<p style="margin-left:50px">host: [URA host IP address]</p>
+<p style="margin-left:50px">port: 9055</p>
+
+<p>With a client connected read output is now pending "Start Reading" being clicked. Starts and stops of reading do not affect the port. Port is closed upon disconnecting from reader or unchecking "Enable Data Extensions".</p>
+<p>When reading the Status bar will indicate a client is connected and data is streaming, example above.</p>
+
+<center><img src="data_streaming_status.png" alt="Data Extension Client Connected and Data Streaming Status" ></img></center>
+</p>
+<center><B>Figure 8: Data Extension Client Connected and Data Streaming Status</B></center>
+
+<center><img src="datastreamingicon.png" alt="Data Extension Client Connected and Data Streaming Icon" ></img></center>
+</p>
+<center><B>Figure 9: Data Extension Client Connected and Data Streaming Icon</B></center>
+</div>
+<div id="footer">
+</div>
+</div>
+
+</BODY>
+</HTML>
+

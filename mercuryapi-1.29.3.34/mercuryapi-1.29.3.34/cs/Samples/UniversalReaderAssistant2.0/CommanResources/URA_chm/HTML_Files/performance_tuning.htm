@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Settings/Status - Performance Metrics</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Performance Metrics</h1>
+<p>Navigation Path: <a href="settings_status.htm">Settings/Status</a> > <a href="#">Performance Tuning Option</a></p>
+</div>
+<div id="content">
+<p>This section provides a set of options, based on high-level usecase characteristics, allowing the reader performance to be optimized.</p>
+
+<center><p><B>Table 3: Performance Tuning Option</B></p></center>
+<table>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Read Power</td>
+<td>
+<p>Control the amount of RF Power transmitted by the reader, to the antenna, when reading. The RF power directly relates to the range at which the reader can “see” tags, the higher the power, the longer the range.</p>
+</td>
+</tr>
+<tr>
+<td>Tag Population Size</td>
+<td>
+<ul style="list-style-type:disc">
+<li><B>Automatically adjust settings as tag population changes </B>- Reader dynamically adjusts optimization setting depending on the tag population it detects in the field.</li>
+<li><B>Optimize for estimated number of tags in the field</B> - If the tag population size is relatively well known and consistent, performance can be increased by optimizing for that size. In this case enter the approximate population size for increased performance.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Read Distance vs Read Rate</td>
+<td>
+<ul style="list-style-type:disc">
+<li><B>Maximum tag read rate</B> - Performance is optimized for maximizing the speed of tag to/from reader communications, which results in more tags being read faster.</li>
+<p>OR</p>
+<li><B>Maximum Tag read distance</B> - Performance is optimized for reading weaker, harder to read tags.</li>
+</ul>
+<p><B>Note</B>: Mostly applicable to using Battery Assisted Passive Tags. Most Passive Tag applications are range limited by the power output from the antenna, not the reader's ability to "hear" a tag's response.</p>
+</td>
+</tr>
+<tr>
+<td>Tag Response Rate</td>
+<td>
+<ul style="list-style-type:disc">
+<li><B>Select best choice for population size</B> - used the Tag Population size setting to determine best settings. Only recommended to be used if setting an estimated tag population size.</li>
+<li>
+<B>Customize tag response rate</B> - adjust between:
+<ul style="list-style-type:disc">
+<li><B>Tags respond more often</B> - tags will re-respond to an ongoing inventory as quickly as possible. Not recommended for large populations of tags.</li>
+<li><B>Tags respond less often</B> -Tags will sleep for their "flag persistence" period, (duration depends on exact setting and tag specifics). This is preferred when trying to inventory large populations of tags as it allows "weaker" tags a chance to respond.</li>
+</li>
+</ul>
+<ul>
+</td>
+</tr>
+<tr>
+<td>
+Configure Gen2 Settings
+</td>
+<td>
+<p>Switches the setting options from the high-level use-case characteristics to low level Gen2 Protocol Settings. See Advanced Performance Tuning</p>
+</td>
+</tr>
+</table>
+</div>
+<div id="footer">
+</div>
+</div>
+</BODY>
+</HTML>

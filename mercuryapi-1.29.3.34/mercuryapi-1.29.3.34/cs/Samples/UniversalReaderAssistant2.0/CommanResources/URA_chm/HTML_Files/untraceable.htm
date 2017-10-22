@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Untraceable</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Untraceable</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">Untraceable</a></p>
+</div>
+<div id="content">
+<h2>Introduction to Gen2V2</h2>
+<p>These instructions describe how to use a Micro module with firmware version 1.07.01 or greater with Universal Reader Assistant 2.6.18.18 or greater (distributed with API version 1.27.1) to demonstrate the EPCglobal Gen2V2 properties of NXP “UCODE DNA” tags.</p>
+<p>These capabilities are:</p>
+<ol type="1">
+<li>Enabling the "Untraceable" feature which permits obscuring all or part of the EPC; all, part, or none of the TID; and all or none of the User memory</li>
+<li>Inserting and activating key0 and key1 (both keys can be used for authentication of the tag, but only key1 can be used to read data securely)</li>
+<li>Ability to read data securely, either by obtaining the data over the air, or asking the tag to store the data in buffer memory, where it is obtained securely.</li>
+</ol>
+<p><B>Note</B> that as with all function tabs, you may either go to the tag and act on the first tag to respond, or you may select a tag in the Tag Results page, left-click on its EPC field, then use the right mouse button to select a tab category. The EPC of that tag will automatically be used to communicate with that tag selectively:</p>
+
+<center><img src="tagselection_advanced_operation.png" alt="Tag Selection for Advanced Operations"></img></center>
+<center><p><B>Figure 17: Tag Selection for Advanced Operations</B></p></center>
+
+<p><B>Note : </B>If you are going to vary the tag's reported EPC length using the Untraceable function, it is best to read the first tag to respond as the selective search for the tag does not automatically adjust to the changing EPC value.</p>
+
+<h2>Confirming Tag Type</h2>
+<p>After you get URA connected to the Micro, make sure that the tag is readable and it is an NXP AES (also called "DNA") tag:</p>
+
+<center><img src="confirming_tag_type.png" alt="Confirming Tag Type"></img></center>
+<center><p><B>Figure 18: Confirming Tag Type</B></p></center> 
+
+<p>If you wish to assign an Access Password to the tag for additional security, do so through the Lock Tag tab.</p>
+
+<p><B>Note :  </B>Although the current value of the Access Password is shown with spaces between the bytes, if you enter a desired value, you must remove these spaces.</p>
+<p><B>Note : </B> The NXP "UCODE DNA" tags currently require that the Access Password be nonzero in order for the Untraceable command to configure the tag properly. Once the Untraceable value is set, however, the value of the Access Password can be zero or non-zero when obtaining the EPC, TID or User memory values.</p>
+
+<h2>Untraceable Function</h2>
+<p>You use the Untraceable function by selecting the options and then pressing "Write to Tag" to send the desired configuration to the tag and activate it. Note that you need to use a non-zero Access Password to set the Untraceable properties. Thereafter, you may define the access password back to all zeroes when reading the allowed tag information, f you wish.</p>
+
+<center><img src="changing_untraceable_settings.png" alt="Changing Untraceable Settings"></img></center>
+<center><p><B>Figure 19: Changing Untraceable Settings</B></p></center> 
+
+<p><B>Note : </B>When the tag is read, this display does NOT show the current state of the settings for the tag except for the Access password. This display always returns to its default choices and there is no way of knowing what the tag is configured to return for each data field.</p>
+
+<h2>Changing EPC Options</h2>
+<p>Select whether you want the tag to report its entire EPC, or a partial EPC. The partial EPC may be adjusted in units of Words (2 bytes). Note that you may not only shorten the EPC, but you may lengthen it as well, to the limits of the extra data in the EPC memory (see results of Tag Inspector).</p>
+<p> As you make changes to the EPC length, and repeatedly read from the Tag Results page, you will see that the tag is identified as unique as each change is made. Here is an example of the tag reporting the entire EPC (6 Words), EPC shortened to 4 Words, and EPC lengthened to 8 Words.</p>
+
+<center><img src="result_of_changing_untraceable_settings.png" alt="Results of Changing EPC Untraceable Options"></img></center>
+<center><p><B>Figure 20: Results of Changing EPC Untraceable Options</B></p></center> 
+
+<h2>Changing TID Options</h2>
+<p>The choices for TID is to show all (tag make and model plus serial number), Tag info only, or not to reveal any. To observe these changes, use the Embedded ReadData function with the setting shown here ("UniqueByData" will allow you to see all the changes and not have new reads overwrite the old ones in Tag Results. "Show failed Data Reads" will allow you to see the tag reads when the TID is not reported.</p>
+
+<center><img src="displaying_results_of_tid_options.png" alt="Displaying Results of TID Options"></img></center>
+<center><p><B>Figure 21: Displaying Results of TID Options</B></p></center> 
+
+<p>The results are shown here, for TID choices of "Show All", "Show Tag Info Only" and "Show None".</p>
+
+<center><img src="results_of_changing_tid_untraceable_option.png" alt="Results of Changing TID Untraceable Options"></img></center>
+<center><p><B>Figure 22: Results of Changing TID Untraceable Options</B></p></center> 
+
+<p>Note that in order to read the TID when "Show Tag Info Only" is active, you must specify that you want to read two words, as shown here:</p>
+
+<center><img src="requesting_2_word_of_tid_data.png" alt="Requesting 2 Words of TID Data"></img></center>
+<center><p><B>Figure 23: Requesting 2 Words of TID Data</B></p></center>
+
+<p>If you specify a length of "0", no TID data will be returned.</p>
+
+<h2>Changing User Data Options</h2>
+<p>The choices for User Data are "Show All" and "Show None".</p>
+<p>The settings for Embedded ReadData may be changed to display User data as shown here:</p>
+
+<center><img src="displaying_results_of_userdata_options.png" alt="Displaying Results of User Data Options"></img></center>
+<center><p><B>Figure 24: Displaying Results of User Data Options</B></p></center>
+
+<p>Note that the NXP UCODE DNA tag does not support reading all User memory with a "0" length. You must specify the length of the data to read.</p>
+
+<p>Again, select "Show Failed Data Reads" if you want the tag read results to show when no User data is returned.</p>
+
+<center><img src="results_of_changing_user_untraceable_option.png" alt="Results of Changing User Untraceable Options"></img></center>
+<center><p><B>Figure 25: Results of Changing User Untraceable Options</B></p></center>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>
+
+
+
+
+

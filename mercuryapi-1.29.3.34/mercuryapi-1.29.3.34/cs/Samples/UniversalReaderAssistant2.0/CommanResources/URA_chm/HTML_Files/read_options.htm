@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Settings/Status - Read Option</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Read Option</h1>
+<p>Navigation Path: <a href="settings_status.htm">Settings/Status</a> > <a href="#">Read Option</a></p>
+</div>
+<div id="content">
+<p>This sections allows the basic behavior of a Read operation to be defined (relates to the read method and ReadPlan configuration as defined in the MercuryAPI) for when the <I>Read </I>button is clicked. It contains the following options</p>
+
+<center><p><B>Table 1: Read Options</B></p></center>
+<table>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Read Behavior</td>
+<td>
+<ul style="list-style-type:disc">
+<li><B>Read Continuously</B> - Clicking Read causes a continuous read to be run until <I>Stop Reading</I> is clicked. Will read using the RF On/RF Off duty cycle as defined by those settings.</li>
+<li><B>Read Once</B> - Each click of Read causes a single query for the time specified. </li>
+<li>Optionally select/deselect <B>Fast Search</B> which optimizes performance for maximum re-reads of a few tags</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Protocols</td>
+<td>
+<p>The protocols supported by the connected reader will be displayed. Check those to be queried for. When Read is clicked the selected protocols will be cycled through.</p>
+</td>
+</tr>
+<tr>
+<td>Antennas</td>
+<td>
+<ul style="list-style-type:disc">
+<li><B>Antennas</B> - The antennas supported by the connected reader will be displayed. Check those to be queried for. When Read is clicked the selected antennas will be cycled through.</li>
+<li><B>Antenna Detection</B> - Will make only antennas with a detected antenna connection available. Uncheck to make all ports available.</li>
+<li><B>Switching Method</B> - Specifies how the reader will switch between antennas during a read operation if multiple antennas are selected:
+<ul style="list-style-type:square">
+<li><B>Equal Time</B> - The RF On or Timeout value specified in the Read Behavior will be divided equally among selected antennas.
+<li><B>Dynamic</B> - The read cycles through the antennas, moving to the next antenna when no more tags are found on the current antenna. The cycle resets to the first antenna every RF On/Timeout period.</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Embedded ReadData</td>
+<td>
+<p>For every tag read the specified memory bank location will also be read for that tag and displayed in the <B><I>Data </I></B>column in <I><B>Tag Results</B></I>.</p>
+<ul style="list-style-type:disc">
+<li><B>Enable </B>- Displays the embedded read data options to be added to the read operation and adds the Data column.</li>
+<li><B>Membank </B>- The memory bank to read from.</li>
+<li><B>Start </B>- The starting WORD address to read from. (0 based)</li>
+<li><B>Length </B>- The number of WORDs of data to read. Specifying 0 will result in the entire memory bank starting at address Start to be read, up to 128 words.</li>
+<li><B>UniqueByData </B>- Causes the data read to be used as a unique identifier of the tag. Useful if many tags in the field have the same EPC, read the TID UID and they will be distinguishable.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>Filter</td>
+<td>
+<p>This will apply a Gen2 Select filter so only tags matching the specified criteria will be read.</p>
+<ul style="list-style-type:disc">
+<li><B>Membank </B>- Memory bank to apply filter on.
+<li><B>Start </B>- Starting BIT address to apply filter against.
+<li><B>Filter Data </B>- The value (in Hex) to compare with the data in <I>Membank </I>at <I>Start </I>address.
+<li>Invert - invert the selection, deselect tags that match the filter criteria and return the ones which don't.
+</ul>
+</td>
+</tr>
+</table>
+</p>
+</BODY>
+</HTML>

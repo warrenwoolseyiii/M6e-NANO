@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - User Memory Editor</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>User Memory Editor</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">User Memory Editor</a></p>
+</div>
+<div id="content">
+<p>The User Memory Editor tag operation tab allows the contents of User Memory of specific tags to be viewed and updated. The tag the operation will be applied to follows the rules defined in the two Tag Operations Workflows.</p>
+
+<p>Once the tag to operate on has been set the User Memory Editor tab supports the following workflow:</p>
+<ol type="1">
+<li>The contents of User Memory to be read and written can be represented in two ways:</li>
+<ul style="list-style-type:disc">
+<li><B>Addressible Hexidecimal</B> - direct hexidecimal representation of the raw data on the tag. In this mode the data is displayed as individual bytes in a grid showing the specific address within the User Memory bank. Modified, but not yet written, data will be shown in red.</li>
+
+<center><img src="addressable_hex_editor.png" alt="Addressible Hex Editor" ></img></center>
+<center><p><B>Figure 14: Addressible Hex Editor</B></p></center> 
+
+<li><B>ASCII Notepad </B>- interprets the data on the tag as ASCII characters. In this mode the data can be displayed and edited as if it were a text file in a text editor. Modified, but not yet written, data will be shown in red.</li>
+
+</p>
+
+<center><img src="ascii_notepad_editor.png" alt="ASCII Notepad Editor"></img></center>
+<center><p><B>Figure 15: ASCII Notepad Editor</B></p></center> 
+</ul>
+
+<p>Note: While typing in ASCII Notepad Editor the total space and remaining space available will be shown in red.</p>
+<li> Once confident the desired data is setup to be written to, clicking the Write to Tag button will cause the data to be written to the tag?s User Memory Bank.</li>
+
+</ol>
+
+<h3>Warning :</h3>
+<p><B>In URA, when a Write to Tag is clicked, whether in the ASCII Editor or Hex Editor the entire contents of the User Memory will be written as shown in the editor. It WILL NOT only write modified data. This can result in long write times for large memory tags. In URA v2.4 this has been fixed so only the edited bytes will be written.</B> </p>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

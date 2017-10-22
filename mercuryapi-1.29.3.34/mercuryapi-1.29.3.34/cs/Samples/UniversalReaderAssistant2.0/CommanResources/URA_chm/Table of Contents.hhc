@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+	<param name="ImageType" value="Folder">
+<param name="Font" value="Verdana,8,0">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Universal Reader Assitant">
+		<param name="Local" value="HTML_Files\defaultpage.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Licence/Copyright">
+			<param name="Local" value="HTML_Files\copyright_page.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Index">
+			<param name="Local" value="HTML_Files\index_page.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Introduction">
+		<param name="Local" value="HTML_Files\introduction.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Workflow">
+		<param name="Local" value="HTML_Files\workflow.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Installing URA">
+		<param name="Local" value="HTML_Files\installingURA.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Standalone Application">
+			<param name="Local" value="HTML_Files\standaloneapp.htm">
+			<param name="URL" value="HTML_Files\standaloneapp.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Source and Executable from MercuryAPI SDK">
+			<param name="Local" value="HTML_Files\sourceandexe.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Apple Bonjour mDNS Discovery Service">
+			<param name="Local" value="HTML_Files\applebonjour.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Starting URA">
+		<param name="Local" value="HTML_Files\startingura.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Connect">
+		<param name="Local" value="HTML_Files\connect.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Networked Readers">
+			<param name="Local" value="HTML_Files\networkreader.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Serial Readers">
+			<param name="Local" value="HTML_Files\serialreader.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Transport Logging">
+			<param name="Local" value="HTML_Files\transportlogging.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Load and Save Profiles">
+			<param name="Local" value="HTML_Files\loadsaveprofiles.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Basic Reading">
+		<param name="Local" value="HTML_Files\basicreading.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tag Results Grid">
+			<param name="Local" value="HTML_Files\tagresultgrid.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Save Data">
+			<param name="Local" value="HTML_Files\savedata.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Settings/Status">
+		<param name="Local" value="HTML_Files\settings_status.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Read Options">
+			<param name="Local" value="HTML_Files\read_options.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Performance Metrics">
+			<param name="Local" value="HTML_Files\performance_metrics.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Performance Tuning Options">
+			<param name="Local" value="HTML_Files\performance_tuning.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Advanced Performance Tuning">
+			<param name="Local" value="HTML_Files\advanced_performance_tuning.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Display Option">
+			<param name="Local" value="HTML_Files\display_option.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Reader Diagnostics">
+			<param name="Local" value="HTML_Files\reader_diagnostic.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Regulatory Testing">
+			<param name="Local" value="HTML_Files\regulatory_testing.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Firmware Upgrade">
+			<param name="Local" value="HTML_Files\firmware_upgrade.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Data Extension (Demo Functionality)">
+			<param name="Local" value="HTML_Files\data_extension.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tag Operations">
+		<param name="Local" value="HTML_Files\tag_operations.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Workflows">
+			<param name="Local" value="HTML_Files\workflows_1.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Write EPC">
+			<param name="Local" value="HTML_Files\write_EPC.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Tag Inspector">
+			<param name="Local" value="HTML_Files\tag_inspector.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="User Memory Editor">
+			<param name="Local" value="HTML_Files\user_memory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Lock Tag">
+			<param name="Local" value="HTML_Files\lock_tag.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Untraceable">
+			<param name="Local" value="HTML_Files\untraceable.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Authenticate">
+			<param name="Local" value="HTML_Files\authenticate.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Troubleshooting">
+		<param name="Local" value="HTML_Files\troubleshooting.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Troubleshooting Table">
+			<param name="Local" value="HTML_Files\troubleshooting_table.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Collecting Diagnostic Data for ThingMagic Support">
+			<param name="Local" value="HTML_Files\collecting_diagnostic_data.htm">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY></HTML>

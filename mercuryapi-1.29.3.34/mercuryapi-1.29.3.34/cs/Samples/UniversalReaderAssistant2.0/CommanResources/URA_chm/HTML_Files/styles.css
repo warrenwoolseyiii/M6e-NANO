@@ -1,0 +1,59 @@
+html *{
+	font-family: verdana !important;
+	font-size: 12px;
+}
+
+body {
+	margin:0px;
+}
+
+table {
+    font-family: verdana;
+	/* font-size: 1em !important; */
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+	text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#page-heading {
+	background-color: #D1CCCB;
+	height:70px;
+}
+
+#page-heading  h1, #page-heading  h1 center{
+	margin: 10px;
+	font-size: 1.5em !important;
+}
+#page-heading  p, #page-heading  a{
+	font-size: 0.85em !important;
+}
+
+#page-heading  p{
+	margin-left: 10px;
+	margin-top: -5px;
+}
+
+#content {
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+}
+
+.caution h3 {
+	background-color: yellow;
+	font-size: 1.5em !important;
+	font-weight: bold;
+	width: 200px;
+}
+
+.caution p {
+	font-weight:bold;
+}

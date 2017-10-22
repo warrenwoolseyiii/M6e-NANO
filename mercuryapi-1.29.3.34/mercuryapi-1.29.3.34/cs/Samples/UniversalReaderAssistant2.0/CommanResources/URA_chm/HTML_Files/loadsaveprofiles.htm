@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Connect - Load and Save Profiles</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Load and Save Profiles</h1>
+<p>Navigation Path: <a href="connect.htm">Connect</a> > <a href="#">Load and Save Profiles</a></p>
+</div>
+<div id="content">
+<center><img src="loadsave.png" alt="Load and Save Profiles"></img></center>
+</p>
+<p>Full settings and display options profiles can be saved, for the current running configuration, and loaded using the Save and Load buttons of the Connect section. Loading and saving profiles supports three different workflows, one for saving and two for loading, as follows:</p>
+
+<h2>Save Profile</h2>
+<p>Once connected to a reader, with it working as desired, the full configuration of the reader, including the reader connected to, all read options, performance settings and display settings can be saved to a URAC (URA Config) file by following these simple steps:</p>
+<ol type="1">
+<li>Click "Save"</li>
+<li>File manager pops up in URA.exe directory. The default filename field populated with [reader type]_[readername].urac. This maybe changed as desired.</li>
+<li>Click "Save" in the file manager to save to the specified file.</li>
+</ol>
+
+<h2>Load Profile - Before Reader Connect</h2>
+<p>If you have not yet connected to a reader and want to load a previously saved profile and connect to the same reader the profile was saved from the Load operation will both connect to the reader and load the saved profile:</p>
+<ol type="1">
+<li>With URA Status indicator showing [Red] Disconnected, click "Load".</li>
+<li>Select desired *.urac file and "Load".</li>
+<li>Load attempts to connect to the Reader URI saved as part of the profile.</li>
+<li>If the connect fails an error will be displayed and the Load Profile - After Reader is already connected workflow should be followed.</li>
+<li>If connect succeeds the full saved profile and display options are loaded.</li>
+</ol>
+
+<h2>Load Profile - After Reader is already connected</h2>
+<p>If you want to load a previously saved profile onto a different reader than it was saved from you must first connect to the reader then load:</p>
+<ol type="1">
+<li>With URA Status indicator showing [Yellow] Connected, click "Load".</li>
+<li>Select desired *.urac file and "Load".</li>
+<li>Since already connected Load ignores reader URI and only loads the profile.</li>
+<li>The full saved profile and display options are loaded.</li>
+</ol>
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>

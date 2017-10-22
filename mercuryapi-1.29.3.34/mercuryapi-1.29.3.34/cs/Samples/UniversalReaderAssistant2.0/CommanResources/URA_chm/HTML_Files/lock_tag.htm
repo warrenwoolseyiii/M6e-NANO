@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<Title>Tag Operations - Lock Tag</Title>
+<link rel="stylesheet" href="styles.css">
+</HEAD>
+<BODY>
+<div id="wrapper">
+<div id="page-heading">
+<h1>Lock Tag</h1>
+<p>Navigation Path: <a href="tag_operations.htm">Tag Operations</a> > <a href="#">Lock Tag</a></p>
+</div>
+<div id="content">
+<p>The Lock Tag operation tab allows the contents of specific tags to be locked and unlocked and the Access Password of the tag to be written. The tag the operations will be applied to follows the rules defined in the two Tag Operations Workflows.</p>
+<p>Once the tag to operate on has been set the Lock Tag tab supports the following workflow:</p>
+<ol type="1">
+<li>Upon tag selection the Access Password is read (if not read-locked) and displayed. In order to lock the contents of a tag first the Access Password should be set to a non-zero value. Contents can be locked with a zero access password
+but it will not be secure since no password is required to operate on the contents of unlock them.</li>
+<li>If Access Password Write is clicked the password is written to the tag. From this point on, for locking to work, the Access Password field in URA must match the value written to the Access Password section of Reserved Memory (see the Tag Inspector to see the memory structure) </li>
+<li> Select the locking operations to be performed and click Apply. The successful, or failed, locks will be indicated in the Apply Locks section.</li>
+<ul style="list-style-type:disc">
+<li>If Access Password is selected to be Read/Write Locked when Apply is clicked you will first be prompted to save the value being written to a file so it will be remembered. The saved file will contain the tag?s EPC ID, full TID and
+the password written. Once the file is saved the locks will be attempted.</li>
+</ul>
+</ol>
+
+<center><img src="lock_tag_operation.png" alt="Lock Tag Operation"></img></center>
+<center><p><B>Figure 16: Lock Tag Operation</B></p></center> 
+
+<p>Note : </p> It is not possible to request the current lock status from a Gen2 tag. For this reason the Lock Tag tab cannot show the current lock state. It can only be used to request new locking states be applied.</p>
+
+</div>
+<div id="footer">
+</div>
+</div>
+ </BODY>
+</HTML>
+
