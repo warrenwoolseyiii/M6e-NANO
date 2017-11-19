@@ -1,15 +1,6 @@
 #include "UARTBus.h"
 
 // public methods
-UARTBus::UARTBus()
-{
-	_busNum = 0;
-	_baudRate = 9600;
-	_numDataBits = 8;
-	_paritySettings = parity_none;
-	_stopBits = 1;
-}
-
 UARTBus::UARTBus( uint8_t busNum )
 {
 	_busNum = busNum;

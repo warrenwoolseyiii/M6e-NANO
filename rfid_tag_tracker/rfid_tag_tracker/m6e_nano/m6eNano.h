@@ -82,29 +82,29 @@ private:
 
 // methods
 public:
-	RFID(void);
+	RFID();
 
-	void setBaud(long baudRate);
-	void getVersion(void);
-	void setReadPower(int16_t powerSetting);
+	void setBaud( uint32_t baudRate );
+	void getVersion();
+	void setReadPower( int16_t powerSetting );
 	void getReadPower();
-	void setWritePower(int16_t powerSetting);
+	void setWritePower( int16_t powerSetting );
 	void getWritePower();
-	void setRegion(uint8_t region);
+	void setRegion( uint8_t region );
 	void setAntennaPort();
 	void setAntennaSearchList();
-	void setTagProtocol(uint8_t protocol = 0x05);
+	void setTagProtocol( uint8_t protocol = 0x05 );
 
-	void startContinuousRead(void); //Disable filtering and start reading continuously
-	void stopContinuousRead(void); //Stops continuous read. Give 1000 to 2000ms for the module to stop reading.
+	void startContinuousRead(); //Disable filtering and start reading continuously
+	void stopContinuousRead(); //Stops continuous read. Give 1000 to 2000ms for the module to stop reading.
 
-	void enableReadFilter(void);
-	void disableReadFilter(void);
+	void enableReadFilter();
+	void disableReadFilter();
 
-	void setReaderConfiguration(uint8_t option1, uint8_t option2);
-	void getOptionalParameters(uint8_t option1, uint8_t option2);
-	void setProtocolParameters(void);
-	void getProtocolParameters(uint8_t option1, uint8_t option2);
+	void setReaderConfiguration( uint8_t option1, uint8_t option2 );
+	void getOptionalParameters( uint8_t option1, uint8_t option2 );
+	void setProtocolParameters();
+	void getProtocolParameters( uint8_t option1, uint8_t option2 );
 
 	uint8_t parseResponse( uint8_t *msg );
 	uint8_t getNumTagEPCBytes();
@@ -113,10 +113,10 @@ public:
 	uint32_t getTagFreq();
 	int8_t getTagRSSI();
     
-	bool checkForNewMessage(void);
+	bool checkForNewMessage();
 
-	uint8_t readTagEPC(uint8_t *epc, uint8_t &epcLength, uint16_t timeOut = COMMAND_TIME_OUT);
-	uint8_t writeTagEPC(char *newID, uint8_t newIDLength, uint16_t timeOut = COMMAND_TIME_OUT);
+	uint8_t readTagEPC( uint8_t *epc, uint8_t &epcLength, uint16_t timeOut = COMMAND_TIME_OUT );
+	uint8_t writeTagEPC( char *newID, uint8_t newIDLength, uint16_t timeOut = COMMAND_TIME_OUT );
 
 	uint8_t readData(uint8_t bank, uint32_t address, uint8_t *dataRead, uint8_t &dataLengthRead, uint16_t timeOut = COMMAND_TIME_OUT);
 	uint8_t writeData(uint8_t bank, uint32_t address, uint8_t *dataToRecord, uint8_t dataLengthToRecord, uint16_t timeOut = COMMAND_TIME_OUT);
@@ -134,6 +134,6 @@ public:
 
 	uint8_t killTag(uint8_t *password, uint8_t passwordLength, uint16_t timeOut = COMMAND_TIME_OUT);
 
-	void sendMessage(uint8_t opcode, uint8_t *data = 0, uint8_t size = 0, uint16_t timeOut = COMMAND_TIME_OUT, bool waitForResponse = true);
+	bool sendMessage(uint8_t opcode, uint8_t *data = 0, uint8_t size = 0, uint32_t timeOut = COMMAND_TIME_OUT, bool waitForResponse = true);
 	uint16_t calculateCRC(uint8_t *u8Buf, uint8_t len);
 };

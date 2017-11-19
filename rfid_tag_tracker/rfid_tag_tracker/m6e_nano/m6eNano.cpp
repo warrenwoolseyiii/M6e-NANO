@@ -33,17 +33,18 @@
     (nyw) lockTag
 */
 
-
 #include "m6eNano.h"
 #include "../util.h"
 
-RFID::RFID(void)
+#include <string.h>
+
+RFID::RFID()
 {
 }
 
-void RFID::setBaud(long baudRate)
+void RFID::setBaud( uint32_t baudRate )
 {
-	uint8_t size = sizeof(baudRate);
+	uint8_t size = sizeof( baudRate );
 	uint8_t data[size];
 	for (uint8_t x = 0 ; x < size ; x++)
 		data[x] = (uint8_t)(baudRate >> (8 * (size - 1 - x)));
@@ -71,7 +72,7 @@ void RFID::startContinuousRead()
 	SETU8(newMsg, i, (uint8_t)TMR_TAG_PROTOCOL_GEN2); // protocol ID
 	*/
 
-	sendMessage( TMR_SR_OPCODE_MULTI_PROTOCOL_TAG_OP, configBlob, sizeof(configBlob) );
+	sendMessage( TMR_SR_OPCODE_MULTI_PROTOCOL_TAG_OP, configBlob, sizeof( configBlob ) );
 }
 
 void RFID::stopContinuousRead()
@@ -80,7 +81,7 @@ void RFID::stopContinuousRead()
 	//02 = Option - stop continuous reading
 	uint8_t configBlob[] = {0x00, 0x00, 0x02};
 
-	sendMessage( TMR_SR_OPCODE_MULTI_PROTOCOL_TAG_OP, configBlob, sizeof(configBlob), false ); //Do not wait for response
+	sendMessage( TMR_SR_OPCODE_MULTI_PROTOCOL_TAG_OP, configBlob, sizeof( configBlob ), false ); //Do not wait for response
 }
 
 void RFID::setRegion(uint8_t region)
@@ -429,7 +430,7 @@ uint8_t RFID::killTag(uint8_t *password, uint8_t passwordLength, uint16_t timeOu
 // returns true if a new message is complete and ready to be cracked
 bool RFID::checkForNewMessage()
 {
-	uint16_t numBytes = _uartBus0.numAsyncRxBytesAvailable();
+	uint16_t numBytes = this->_uartBus0.numAsyncRxBytesAvailable();
 	if (numBytes != 0)
 	{
 		// ensure there is no buffer overflow
@@ -456,7 +457,7 @@ uint8_t RFID::getNumTagEPCBytes()
 	uint8_t tagDataBytes = getNumTagDataBytes(); // offset
 	uint16_t numEPCBits = _nanoRxBuff[27 + tagDataBytes]; // number of bits of EPC (including PC, EPC, and EPC CRC)
 	numEPCBits <<= 8;
-	numEPCBits |= _nanoRxBuffNdx[28 + tagDataBytes];
+	numEPCBits |= _nanoRxBuff[28 + tagDataBytes];
 
 	uint8_t numEPCBytes = numEPCBits / 8;
 	numEPCBytes -= 4; // ignore the first two bytes and last two bytes
@@ -468,9 +469,9 @@ uint8_t RFID::getNumTagDataBytes()
 {
 	uint16_t numDataBits = _nanoRxBuff[24];
 	numDataBits <<= 8;
-	numDataBits |= _nanoRxBuffNdx[25];
+	numDataBits |= _nanoRxBuff[25];
 	
-	uint8_t numDataBytes = (numDataBits / 8);
+	uint8_t numDataBytes = (uint8_t)((numDataBits / 8) & 0xFF);
 	if ((numDataBits % 8) != 0)
 		numDataBytes++;
 
@@ -588,7 +589,7 @@ bool RFID::sendMessage( uint8_t opcode, uint8_t *data, uint8_t size, uint32_t ti
 	msg[size + 3] = crc >> 8;
 	msg[size + 4] = crc & 0xff;
 	
-	if (_uartBus0.asyncWriteBuf( msg, (uint16_t)size ) != (uint16_t)size)
+	if (this->_uartBus0.asyncWriteBuf( msg, (uint16_t)size ) != (uint16_t)size)
 		return false; // TODO: don't fail silently
 
 	if (!waitForResponse || timeOut == 0)

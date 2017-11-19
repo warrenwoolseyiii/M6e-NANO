@@ -32,7 +32,6 @@ private:
 
 // functions
 public:
-	UARTBus();
 	UARTBus( uint8_t busNum = 0 );
 	void setBaudRate( uint32_t baudRate );
 	void setParity( parity_settings_t parity );
