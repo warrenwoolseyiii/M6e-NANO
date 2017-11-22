@@ -19,6 +19,7 @@
 #include <stdbool.h>
 
 #define MAX_MSG_SIZE UART_BUFFER_LEN
+#define DEFAULT_BAUD_RATE 115200UL
 
 #define TMR_SR_OPCODE_VERSION 0x03
 #define TMR_SR_OPCODE_SET_BAUD_RATE 0x06
@@ -43,7 +44,7 @@
 #define TMR_SR_OPCODE_SET_READER_OPTIONAL_PARAMS 0x9A
 #define TMR_SR_OPCODE_SET_PROTOCOL_PARAM 0x9B
 
-#define COMMAND_TIME_OUT  2000 //Number of ms before stop waiting for response from module
+#define COMMAND_TIME_OUT  2000UL //Number of ms before stop waiting for response from module
 
 //Define all the ways functions can return
 #define ALL_GOOD                        0
@@ -83,7 +84,7 @@ private:
 // methods
 public:
 	RFID();
-
+	bool start();
 	void setBaud( uint32_t baudRate );
 	void getVersion();
 	void setReadPower( int16_t powerSetting );

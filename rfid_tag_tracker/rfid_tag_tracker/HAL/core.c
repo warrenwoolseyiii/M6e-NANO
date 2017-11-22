@@ -42,7 +42,7 @@ WDTCSR = 0;\
 // file specific global variables
 static bool_t gGlobalIntsEn = FALSE;
 static bool_t gReEnableGlobalInts = FALSE;
-static uint8_t gNestedBlockingTransacDepth = 0;
+static int16_t gNestedBlockingTransacDepth = 0;
 
 // locally defined functions
 wdt_timeout_t core_setWDTPeriod(wdt_timeout_t timeOut)
@@ -223,8 +223,9 @@ uint16_t core_atomic16BitSFRRead(volatile uint8_t *regH, volatile uint8_t *regL)
 void core_enterBlockingTransaction()
 {
 #ifndef DISABLE_INTERRUPTS_IN_BLOCKING_TRANSACTIONS
-    if (gNestedBlockingTransacDepth == 0)
+    if (gNestedBlockingTransacDepth <= 0)
     {
+		gNestedBlockingTransacDepth = 0;
 	    gReEnableGlobalInts = gGlobalIntsEn;
 	    core_disableGlobalInt();
     }
@@ -237,8 +238,9 @@ void core_exitBlockingTransaction()
 {
 #ifndef DISABLE_INTERRUPTS_IN_BLOCKING_TRANSACTIONS
     gNestedBlockingTransacDepth--;
-    if (gNestedBlockingTransacDepth == 0)
+    if (gNestedBlockingTransacDepth <= 0)
     {
+		gNestedBlockingTransacDepth = 0;
 	    if (gReEnableGlobalInts)
 			core_enableGlobalInt();
     }        

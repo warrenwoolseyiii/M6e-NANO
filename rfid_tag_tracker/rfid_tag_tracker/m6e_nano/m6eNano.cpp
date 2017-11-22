@@ -40,6 +40,15 @@
 
 RFID::RFID()
 {
+	_uartBus0.setBaudRate( DEFAULT_BAUD_RATE );
+	_uartBus0.setNumDataBits( 8 );
+	_uartBus0.setNumStopBits( 1 );
+	_uartBus0.setParity( parity_none );
+}
+
+bool RFID::start()
+{
+	return _uartBus0.startBus();
 }
 
 void RFID::setBaud( uint32_t baudRate )
@@ -49,7 +58,8 @@ void RFID::setBaud( uint32_t baudRate )
 	for (uint8_t x = 0 ; x < size ; x++)
 		data[x] = (uint8_t)(baudRate >> (8 * (size - 1 - x)));
 
-	sendMessage( TMR_SR_OPCODE_SET_BAUD_RATE, data, size, COMMAND_TIME_OUT, false );
+	if (sendMessage( TMR_SR_OPCODE_SET_BAUD_RATE, data, size, COMMAND_TIME_OUT, false ))
+		_uartBus0.setBaudRate( baudRate );
 }
 
 // hard coded to set to continuous read of GEN2 type tags
@@ -568,8 +578,8 @@ uint8_t RFID::parseResponse( uint8_t *msg )
 		else // full tag record with RSSI, frequency of tag, timestamp, EPC, Protocol control bits, EPC CRC, CRC
 			return RESPONSE_IS_TAGFOUND;
 	}
-	else
-		return ERROR_UNKNOWN_OPCODE;
+	
+	return ERROR_UNKNOWN_OPCODE;
 }
 
 bool RFID::sendMessage( uint8_t opcode, uint8_t *data, uint8_t size, uint32_t timeOut, bool waitForResponse )
@@ -589,7 +599,7 @@ bool RFID::sendMessage( uint8_t opcode, uint8_t *data, uint8_t size, uint32_t ti
 	msg[size + 3] = crc >> 8;
 	msg[size + 4] = crc & 0xff;
 	
-	if (this->_uartBus0.asyncWriteBuf( msg, (uint16_t)size ) != (uint16_t)size)
+	if (this->_uartBus0.asyncWriteBuf( msg, (uint16_t)(size + 5) ) != (uint16_t)(size + 5))
 		return false; // TODO: don't fail silently
 
 	if (!waitForResponse || timeOut == 0)
@@ -621,7 +631,7 @@ bool RFID::sendMessage( uint8_t opcode, uint8_t *data, uint8_t size, uint32_t ti
 	// [31 to 42 + M + N] 00 00 00 00 00 00 00 00 00 00 15 45 = EPC ID
 	// [43, 44 + M + N] 45 E9 = EPC CRC
 	// [45, 46 + M + N] 56 1D = Message CRC
-	size = 0;
+	size = 7;
 	crc = 0;
 	uint16_t ndx = 0;
 	uint32_t startTime = millis();
