@@ -34,7 +34,8 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../HAL \
-../m6e_nano
+../m6e_nano \
+../message
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
